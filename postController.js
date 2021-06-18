@@ -1,10 +1,11 @@
 import Post from "./post.js"
 import PostService from "./PostService.js"
+import sharp from "sharp"
+
 
 class PostController {
     async create(req, res) {
         try {
-            console.log(req.files);
             const post = await PostService.create(req.body, req.files.picture) //создание поста на основе schema, с использованием полученных в запросе данных
             res.json(post)
         } catch (e) {

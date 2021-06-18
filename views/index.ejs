@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <%- include ('blocks/header.ejs') -%>
+    <div class="asd123">
+
+        Тестовая страница. Здесь можно потестить работу с сервером.
+        <div class="form-wrapper">
+        
+
+            <form class="form  ml-2"  action="/about"  method="post" id="test">
+                <div class="form-group">
+                    регистрация <br />
+                    <label for="exampleInputEmail1">Email address</label>
+
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">User Name</label>
+
+                    <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="user_check" name="user_check">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary" id="form_btn">Регистрация</button>
+            </form>
+        </div>
+        <button type="button" class="get-users" id="get-users">получить список пользователей</button>
+        <div class="delete-wrapper">
+            <button type="button" class="delete-users" id="delete-user">УДАЛИТЬ ПОЛЬЗОВАТЕЛЯ</button>
+            <input type="text" class="input" name="requestForDelete" id="requestForDelete">
+
+        </div>
+
+        <form class="form  ml-2"  action="/post"  method="post" id="post">
+            <div class="form-group">
+                регистрация <br />
+                <label for="exampleInputEmail1">Заголовок поста</label>
+
+                <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Тело поста</label>
+
+                <input type="text" name="body" class="form-control" id="body" aria-describedby="emailHelp">
+                
+            </div>
+            <button type="submit" class="btn btn-primary" id="post_post">написать пост</button>
+        </form>
+    </div>
+    <script>
+        let test = document.getElementById('test')
+        let formBtn = document.getElementById('form_btn');
+        let getUsers = document.getElementById('get-users');
+        let deleteUser = document.getElementById('delete-user')
+        let requestForDelete = document.getElementById('requestForDelete');
+        let display = document.querySelector('.asd');
+        let postPost = document.getElementById('post_post');
+
+
+
+
+        deleteUser.addEventListener('click', async function () {
+            let userName = requestForDelete.value;
+            // сериализуем данные в json
+            let user = JSON.stringify({
+                username: userName,
+            });
+
+            let request = new XMLHttpRequest();
+            request.open("POST", "/auth/delete", true);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.onreadystatechange = function () {
+                // получаем и парсим ответ сервера
+                let receivedUser = JSON.parse(user);
+                console.log('user', receivedUser);
+            };
+            request.send(user);
+            setTimeout(getUsersList, 100)
+        })
+
+
+        function getUsersList() {
+            getUsers.innerHTML = "ПОЛУЧИТЬ СПИСОК ПОЛЬЗОВАТЕЛЕЙ"
+            requestForDelete.value = ''
+            fetch("/auth/users").then(function (response) {
+                if (response.ok) {
+                    response.text().then(function (res) {
+                        let users = JSON.parse(res);
+                        users.forEach(item => {
+                            console.log(item.username);
+                            let x = document.createElement('div');
+                            getUsers.append(x);
+                            x.textContent = item.username
+                        });
+                    });
+                } else {
+                    console.log('error');
+                }
+            });
+        }
+
+        getUsers.addEventListener('click', getUsersList)
+
+        formBtn.addEventListener('click', function () {
+            let registerForm = document.forms["test"];
+            let userName = registerForm.elements["username"].value;
+            let email = registerForm.elements["email"].value;
+            let password = registerForm.elements["password"].value
+            // сериализуем данные в json
+            let user = JSON.stringify({
+                username: userName,
+                password: password,
+                email: email
+            });
+
+            let request = new XMLHttpRequest();
+            request.open("POST", "/auth/registration", true);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.addEventListener("load", function () {
+                // получаем и парсим ответ сервера
+                let receivedUser = JSON.parse(user);
+                console.log(receivedUser);
+
+            });
+            request.send(user);
+        })
+    </script>
+</body>
+
+</html>

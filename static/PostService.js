@@ -1,15 +1,10 @@
 import Post from "./post.js"
 import fileService from "./fileService.js";
-import sharp from "sharp";
 
 class PostService {
     async create(post, picture) {
-        console.log(typeof(picture));
         const filename = fileService.saveFile(picture)
-        const createdPost = await Post.create({
-            ...post,
-            picture: filename
-        })
+        const createdPost = await Post.create({...post, picture: filename}) 
         return createdPost;
     }
 
@@ -27,7 +22,7 @@ class PostService {
     }
 
     async update(post) {
-        if (!post._id) {
+        if (!post._id) { 
             throw new Error('не указан ID')
         }
         const updatedPost = await Post.findByIdAndUpdate(post._id, post, {
