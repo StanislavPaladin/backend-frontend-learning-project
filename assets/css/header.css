@@ -1,0 +1,87 @@
+body {
+    overflow-y: scroll;
+}
+
+.header-wrapper {
+    width: 100%;
+}
+
+.header {
+    padding-left: 135px;
+    padding-right: 135px;
+    position: fixed;
+    background-color: black;
+    flex-direction: row;
+    height: 130px;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header.absolute {
+    position: relative;
+    height: 40px;
+    left: 0;
+    top: 0;
+}
+
+.header .sections {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .sections .section {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.header .sections .icon-wrapper{
+    width: 20px;
+    cursor:pointer;
+}
+
+.header .sections .section.active {
+    color: #0AC775;
+}
+
+.header .sections .link {
+    outline: none;
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.header .top-sections {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+}
+
+.header .top-sections .section {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.main {
+    margin-top: 180px;
+}
+
+.menu.fixed-top {
+    position: fixed !important;
+    top: 0 !important;
+    margin: 0 !important;
+}
+

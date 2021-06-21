@@ -1,12 +1,11 @@
 import express from "express";
 import mongoose from 'mongoose';
-import router from "./router.js";
+import router from "./post-scripts//router.js";
 import fileUpload from "express-fileupload";
 import nodemailer from "nodemailer";
-import authRouter from './authRouter.js';
+import authRouter from './auth-scripts//authRouter.js';
+// import menu from './front-scripts/menu.js'
 
-
-// const bodyParser = require('body-parser');
 import bodyParser from 'body-parser'
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
@@ -23,21 +22,32 @@ app.use(express.static('static'))
 app.use(fileUpload({}))
 /*  ednpoints */ 
 app.use('/api', router) //обрабатывает запросы, которые идут после /api  (http://localhost:5000/api/posts   etc.)
-app.use('/public', express.static('public'));
+app.use('/assets', express.static('assets'));
 app.use('/auth', authRouter)
 
 
+
 app.get('/', function(req, res) {
-    res.render('./index');
+    res.render('index.ejs');
+    // res.render('menu.js');
 })
 
 app.post('/about', urlencodedParser, function(req, res) {
     if (!req.body) {return req.status(400)}
       console.log(req.body);
       if (res.statusCode === 200) {
-        res.render('about-success', {data: req.body});
-        main(req.body).catch(console.error);
+        res.render('./mainSections/main.ejs', {data: req.body});
+        // main(req.body).catch(console.error);
       }
+}) 
+
+app.post('/post', urlencodedParser, function(req, res) {
+  if (!req.body) {return req.status(400)}
+    console.log(req.body);
+    if (res.statusCode === 200) {
+      res.render('about-success', {data: req.body});
+      
+    }
 }) 
 
 app.get('/404', urlencodedParser, function(req, res) {
@@ -79,4 +89,5 @@ async function main(data) {
     console.log("Message sent: %s", info.messageId);
   }
   
-  // main().catch(console.error);
+  
+

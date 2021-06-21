@@ -4,12 +4,13 @@ import sharp from "sharp";
 
 class PostService {
     async create(post, picture) {
-        console.log(typeof(picture));
-        const filename = fileService.saveFile(picture)
+        // console.log(typeof(picture));
+        // const filename = fileService.saveFile(picture)
         const createdPost = await Post.create({
             ...post,
-            picture: filename
+            // picture: filename
         })
+        console.log('пост создан');
         return createdPost;
     }
 

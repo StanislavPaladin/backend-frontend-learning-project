@@ -1,10 +1,10 @@
 
-import Role from './models/Role.js';
-import User from './models/User.js';
+import Role from '../models/Role.js';
+import User from '../models/User.js';
 import bcrypt from 'bcryptjs';
 import {validationResult} from 'express-validator'
 import jwt from 'jsonwebtoken';
-import secret from './config.js'
+import secret from '../config.js'
 
 
 const generateAccessToken = (id, roles) => {
@@ -35,15 +35,6 @@ class authController {
             const user = new User ({username: username, password: hashPassword , roles: [userRole.value]  })
             await user.save();
             console.log('register success');
-            
-            // let request = new XMLHttpRequest();
-            // request.open("POST", "/auth", true);
-            // request.setRequestHeader("Content-Type", "json");
-            // request.addEventListener("load", function () {
-                
-            // });
-
-            // console.log('RES STATUS', res.status());
             
             return res.json({message: "Регистрация прошла успешно"})
             

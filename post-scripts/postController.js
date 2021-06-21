@@ -6,7 +6,7 @@ import sharp from "sharp"
 class PostController {
     async create(req, res) {
         try {
-            const post = await PostService.create(req.body, req.files.picture) //создание поста на основе schema, с использованием полученных в запросе данных
+            const post = await PostService.create(req.body) //создание поста на основе schema, с использованием полученных в запросе данных
             res.json(post)
         } catch (e) {
             res.status(500).json(e.message)
