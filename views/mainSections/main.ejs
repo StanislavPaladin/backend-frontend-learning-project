@@ -1,20 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/header.css" class="rel">
-</head>
-<body>
-    <%- include ('../_commonSections/header.ejs') -%>
-    <div class="main" >
-        
+<div class="news-wrapper">
+    <div class="news-big">
+        <div class="date">Дата</div>
+        <div class="title">Заголовок</div>
+        <div class="user">Username</div>
+        <img src="/assets/img/test-img.jpg" alt="image">
+        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, non facilis. Impedit velit nemo in quas id, molestiae vel deleniti autem doloremque sit atque cumque ipsum inventore distinctio eaque aperiam ad assumenda, facilis quo dolorem quasi odit maiores sequi! Sit explicabo pariatur numquam sunt quidem ratione dignissimos eveniet consectetur modi.</div>
     </div>
-    <script src="/assets/front-scripts/index.js"></script>
-    <script src="/assets/front-scripts/menu.js"></script>
-</body>
-</html>
+    <div class="news-list">
+        <div class="search">
+            <input type="search" class="input search">
+            <img src="/assets/fonts/unicons/search-green.svg" alt="search">
+        </div>
+        <div class="title">Популярные посты</div>
+        <ul class="items">
+            <li class="item">
+                <img class="image" src="/assets/img/test-img.jpg" alt="image">
+                <div class="text">
+                    <p class="title">Заголовок</p>
+                    <div class="date">
+                        <img src="/assets/fonts/unicons/clock.svg" alt="image">
+                        Дата</div>
+                </div>
+            </li>
+            <li class="item">
+                <img class="image" src="/assets/img/test-img.jpg" alt="image">
+                <div class="text">
+                    <p class="title">Заголовок</p>
+                    <div class="date">
+                        <img src="/assets/fonts/unicons/clock.svg" alt="image">
+                        Дата</div>
+                </div>
+            </li>
+            <li class="item">
+                <img class="image" src="/assets/img/test-img.jpg" alt="image">
+                <div class="text">
+                    <p class="title">Заголовок</p>
+                    <div class="date">
+                        <img src="/assets/fonts/unicons/clock.svg" alt="image">
+                        Дата</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

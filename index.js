@@ -28,8 +28,7 @@ app.use('/auth', authRouter)
 
 
 app.get('/', function(req, res) {
-    res.render('index.ejs');
-    // res.render('menu.js');
+    res.render('mainSections/index.ejs', {data: '/assets/img/test-img.jpg'});
 })
 
 app.post('/about', urlencodedParser, function(req, res) {

@@ -5,10 +5,9 @@ window.onscroll = function () {
 
 function stick() {
     if (document.documentElement.scrollTop > 50) {
-        console.log(1);
-        document.querySelector("#menu").style.top = '0px'
+        document.querySelector("#menu").classList.add('scrolling')
     } else {
-        document.querySelector("#menu").style.top = '50px'
+        document.querySelector("#menu").classList.remove('scrolling')
     }
 }
 

@@ -1,4 +1,9 @@
+@import "../fonts/Roboto.css";
+@import "../fonts/Montserrat.css";
+@import "../fonts/Poppins.css";
+@import "./breadcurmbs.css";
 @import "./header.css";
 @import "./margins_paddings.css";
 @import "./width_utilities.css";
-
+@import "./footer.css";
+@import "./news.css"

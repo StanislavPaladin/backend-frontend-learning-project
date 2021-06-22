@@ -10,13 +10,32 @@ body {
     padding-left: 135px;
     padding-right: 135px;
     position: fixed;
-    background-color: black;
+    top: 40px;
+    background-color: #141D28;
+    opacity: 0.9;
     flex-direction: row;
     height: 130px;
     width: 95%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: 0.2s;
+}
+
+.header.scrolling{
+    padding-left: 135px;
+    padding-right: 135px;
+    position: fixed;
+    background-color: #141D28;
+    top: 0;
+    opacity: 1;
+    flex-direction: row;
+    height: 130px;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.2s;
 }
 
 .header.absolute {
@@ -35,6 +54,7 @@ body {
 }
 
 .header .sections .section {
+    cursor: pointer;
     display: flex;
     align-items: center;
     color: #fff;
@@ -45,9 +65,32 @@ body {
     line-height: 28px;
 }
 
+.header .sections .section.links .icon-wrapper.in:hover{
+    text-decoration: none;
+   
+}
+.header .sections .section.links .icon-wrapper.yt{
+    margin-left: 20px;
+    margin-top: 5px;  /* визуально выравнивает обе svg картинки по оси x*/
+}
+.header .sections .section.links .icon-wrapper.yt:hover{
+    text-decoration: none;
+    
+}
+
+
+.header .sections .section .link a{
+    text-decoration: none;
+    color: #fff;
+}
+
 .header .sections .icon-wrapper{
     width: 20px;
     cursor:pointer;
+}
+
+.header .section:hover{
+    color: #0AC775;
 }
 
 .header .sections .section.active {
@@ -75,9 +118,7 @@ body {
     flex-direction: row;
 }
 
-.main {
-    margin-top: 180px;
-}
+
 
 .menu.fixed-top {
     position: fixed !important;
