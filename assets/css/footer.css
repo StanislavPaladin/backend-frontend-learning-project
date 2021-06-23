@@ -1,4 +1,4 @@
-.footer-wrapper{
+.footer-wrapper {
     width: 100%;
     bottom: 0;
     right: 0;
@@ -29,6 +29,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
+    transition: 0.3s;
 }
 
 
@@ -41,6 +42,7 @@
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
+
 }
 
 .footer .sections .links a {
@@ -50,9 +52,10 @@
     font-size: 18px;
     line-height: 25px;
     color: #fff;
+    transition: 0.3s;
 }
 
-.footer .sections .links a:hover{
+.footer .sections .links a:hover {
     text-decoration: none;
     color: #0AC775;
 }
@@ -104,7 +107,8 @@
     font-size: 14px;
     line-height: 21px;
     color: #fff;
-    padding-top: 15px;;
+    padding-top: 15px;
+    ;
     display: flex;
     align-items: center;
     justify-content: center;

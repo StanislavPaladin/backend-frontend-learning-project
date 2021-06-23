@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/index.css" class="rel">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <script src="https://kit.fontawesome.com/7b548e20ff.js" crossorigin="anonymous"></script>
+
 </head>
+
 <body>
+
     <%- include ('../_commonSections/header.ejs') -%>
-    <div class="main" >
-        <%- include ('../_commonSections/breadcrumbs.ejs') -%>
-        <%- include ('../mainSections/main.ejs') -%>
+    <div class="main">
+        <%- include ('../mainSections/slider.ejs') -%>
+        <%- include ('../mainSections/about.ejs') -%>
+        <%- include ('../mainSections/products.ejs') -%>
+        <%- include ('../mainSections/news.ejs') -%>
     </div>
-    <%- include ('../_commonSections/footer.ejs') %> 
-    <script src="/assets/front-scripts/index.js"></script>
+    <%- include ('../_commonSections/footer.ejs') %>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/front-scripts/swiper.js"></script>
     <script src="/assets/front-scripts/menu.js"></script>
 </body>
+
 </html>

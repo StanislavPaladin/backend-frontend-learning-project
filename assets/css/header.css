@@ -4,9 +4,11 @@ body {
 
 .header-wrapper {
     width: 100%;
+    
 }
 
 .header {
+    z-index: 2;
     padding-left: 135px;
     padding-right: 135px;
     position: fixed;
@@ -19,7 +21,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .header.scrolling{
@@ -30,12 +32,12 @@ body {
     top: 0;
     opacity: 1;
     flex-direction: row;
-    height: 130px;
+    height: 100px;
     width: 95%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .header.absolute {
@@ -63,8 +65,37 @@ body {
     font-weight: normal;
     font-size: 24px;
     line-height: 28px;
+    transition: 0.3s;
 }
 
+.header .logo {
+    width: 300px;
+    display: flex;
+    align-items: center;
+
+}
+
+.header .logo .logo-text {
+    font-family: Montserrat;
+    margin-left: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 30px;
+    color: #0ac775;
+}
+
+.header .logo img{
+    height: 100px;
+    width: 100px;
+    transition: 0.3s;
+}
+
+.header.scrolling .logo img{
+    width: 60px;
+    height: 60px;
+    
+}
 .header .sections .section.links .icon-wrapper.in:hover{
     text-decoration: none;
    

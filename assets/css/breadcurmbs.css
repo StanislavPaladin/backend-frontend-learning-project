@@ -11,6 +11,15 @@
     justify-content: center;
 }
 
+.breadcrumbs-wrapper::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+}
+
 .breadcrumbs-wrapper .title {
     padding-top: 40px;
     font-family: Montserrat;
@@ -31,7 +40,7 @@
     color: #fff;
 }
 
-.breadcrumbs-wrapper .breadcrumbs a{
+.breadcrumbs-wrapper .breadcrumbs a {
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -45,7 +54,7 @@
     color: #0AC775;
 }
 
-.breadcrumbs-wrapper .breadcrumbs a:hover{
+.breadcrumbs-wrapper .breadcrumbs a:hover {
     text-decoration: none;
     color: #0AC775;
 }

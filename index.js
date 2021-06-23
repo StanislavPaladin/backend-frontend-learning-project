@@ -4,7 +4,7 @@ import router from "./post-scripts//router.js";
 import fileUpload from "express-fileupload";
 import nodemailer from "nodemailer";
 import authRouter from './auth-scripts//authRouter.js';
-// import menu from './front-scripts/menu.js'
+
 
 import bodyParser from 'body-parser'
 const urlencodedParser = bodyParser.urlencoded({ extended: false })

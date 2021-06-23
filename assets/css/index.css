@@ -6,4 +6,27 @@
 @import "./margins_paddings.css";
 @import "./width_utilities.css";
 @import "./footer.css";
-@import "./news.css"
+@import "./news.css";
+@import "./slider.css";
+@import "./about.css";
+@import "./products.css";
+
+
+
+html {
+    overflow-y: scroll;
+}
+
+:root {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+:root body {
+    position: absolute;
+}
+
+body {
+    width: 100vw;
+    overflow: hidden;
+}
