@@ -1,0 +1,22 @@
+.form-group .input-grp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.form-group .input-grp .form-control {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid gray;
+}
+.form-group .input-grp i {
+    margin-left: -15px;  /* только так получилось нормально выровнять иконку "внутри" инпута */ 
+}
+
+form .submit-btn {
+    width: 150px;
+    height: 50px;
+    border-radius: 2px;
+    border: 2px solid black;
+}

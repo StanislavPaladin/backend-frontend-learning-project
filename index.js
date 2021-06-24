@@ -30,28 +30,40 @@ app.use('/auth', authRouter)
 app.get('/', function(req, res) {
     res.render('mainSections/index.ejs', {data: '/assets/img/test-img.jpg'});
 })
+app.get('/products', function(req, res) {
+  res.render('productsSections/index.ejs', {data: {img:'/assets/img/test-img.jpg', title: 'Продукты'}});
+})
+app.get('/news', function(req, res) {
+  res.render('newsListSections/index.ejs', {data: {img:'/assets/img/test-img.jpg', title: 'Новости'}});
+})
+app.get('/about', function(req, res) {
+  res.render('aboutSections/index.ejs', {data: {img:'/assets/img/test-img.jpg', title: 'О нас'}});
+})
+app.get('/contacts', function(req, res) {
+  res.render('contactsSections/index.ejs', {data: {img:'/assets/img/test-img.jpg', title: 'Контакты'}});
+})
 
-app.post('/about', urlencodedParser, function(req, res) {
-    if (!req.body) {return req.status(400)}
-      console.log(req.body);
-      if (res.statusCode === 200) {
-        res.render('./mainSections/main.ejs', {data: req.body});
-        // main(req.body).catch(console.error);
-      }
-}) 
+// app.post('/about', urlencodedParser, function(req, res) {
+//     if (!req.body) {return req.status(400)}
+//       console.log(req.body);
+//       if (res.statusCode === 200) {
+//         res.render('./mainSections/main.ejs', {data: req.body});
+//         // main(req.body).catch(console.error);
+//       }
+// }) 
 
-app.post('/post', urlencodedParser, function(req, res) {
-  if (!req.body) {return req.status(400)}
-    console.log(req.body);
-    if (res.statusCode === 200) {
-      res.render('about-success', {data: req.body});
+// app.post('/post', urlencodedParser, function(req, res) {
+//   if (!req.body) {return req.status(400)}
+//     console.log(req.body);
+//     if (res.statusCode === 200) {
+//       res.render('about-success', {data: req.body});
       
-    }
-}) 
+//     }
+// }) 
 
-app.get('/404', urlencodedParser, function(req, res) {
-    res.render('404');
-}) 
+// app.get('/404', urlencodedParser, function(req, res) {
+//     res.render('404');
+// }) 
 
 
 async function startApp() {

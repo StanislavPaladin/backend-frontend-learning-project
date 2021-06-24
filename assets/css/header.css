@@ -8,7 +8,7 @@ body {
 }
 
 .header {
-    z-index: 2;
+    z-index: 3;
     padding-left: 135px;
     padding-right: 135px;
     position: fixed;
@@ -68,11 +68,16 @@ body {
     transition: 0.3s;
 }
 
+
 .header .logo {
     width: 300px;
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
 
+.header .logo:hover{
+    text-decoration: none;
 }
 
 .header .logo .logo-text {

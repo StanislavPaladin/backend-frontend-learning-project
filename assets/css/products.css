@@ -32,7 +32,7 @@
 .products .main {
     padding-top: 50px;
     padding-bottom: 50px;
-    background-color:#233142;
+    background-color: #233142;
     padding-left: 135px;
     padding-right: 135px;
     height: 650px;
@@ -43,7 +43,7 @@
 }
 
 .products .main .product {
-    width: 33%;
+    width: 20%;
     height: 150px;
     display: flex;
     align-items: center;
@@ -51,10 +51,11 @@
     flex-direction: row;
 }
 
-.products .main .product .icon{
+.products .main .product .icon {
     margin-bottom: 40px;
 }
-.products .main .product .icon i{
+
+.products .main .product .icon i {
     font-size: 36px;
     color: #0ac775;
     cursor: pointer;
@@ -62,7 +63,7 @@
     transition: 0.2s;
 }
 
-.products .main .product .icon i:hover{
+.products .main .product .icon i:hover {
     color: #fff;
 }
 
@@ -100,4 +101,84 @@
     font-size: 16px;
     line-height: 24px;
     color: #fff;
+}
+
+.products-wrapper {
+    padding-left: 135px;
+    padding-right: 135px;
+}
+
+.products-wrapper .items {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 90px;
+}
+
+.products-wrapper .items .item {
+    border-color: transparent;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+    height: 710px;
+    width: 32%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    justify-content: space-between;
+    /* margin-right: 10px; */
+    margin-bottom: 35px;
+}
+
+
+.products-wrapper .items .item img {
+    position: relative;
+    max-height: 400px;
+    width: 100%;
+    z-index: 0;
+}
+
+.products-wrapper .items .item img:hover{
+    opacity: .5;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+
+.products-wrapper .items .item a {
+    text-decoration: none;
+}
+
+.products-wrapper .items .item .title {
+    text-align: center;
+    align-self: center;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    color: #233142;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+}
+
+.products-wrapper .items .item .line {
+    width: 40%;
+    align-self: center;
+    border-bottom: 5px solid #0AC775;
+    margin-bottom: 50px;
+}
+
+.products-wrapper .items .item .text {
+    color: #233142;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 80px;
+    align-self: center;
 }

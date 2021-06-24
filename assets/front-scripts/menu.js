@@ -8,6 +8,7 @@ function stick() {
         document.querySelector("#menu").classList.add('scrolling')
     } else {
         document.querySelector("#menu").classList.remove('scrolling')
+        
     }
 }
 

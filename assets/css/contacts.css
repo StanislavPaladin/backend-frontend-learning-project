@@ -1,0 +1,62 @@
+.main.contacts {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.main form {
+    width: 600px;
+    height: 810px;
+    align-items: center;
+}
+
+.main .map-wrapper {
+    margin-top: 100px;
+    width: 1650px;
+    height: 720px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.main .map-wrapper .contacts {
+    height: 100%;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.main .map-wrapper .contacts .item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.main .map-wrapper .contacts .item .icon {
+    margin-right: 20px;
+    color: #0AC775;
+    font-size: 30px;
+}
+
+.main .map-wrapper .contacts .item .title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+}
+
+.main .map-wrapper .contacts .item .text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+}

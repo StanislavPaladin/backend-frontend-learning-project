@@ -35,6 +35,7 @@
 
 
 .footer .sections .links {
+    font-family: 'MONTSERRAT';
     padding-top: 50px;
     margin-left: -10px;
     /* необходимо для того, что-бы выровнять визуально по оси Y */
@@ -46,7 +47,8 @@
 }
 
 .footer .sections .links a {
-    font-family: Montserat;
+    text-decoration: none;
+    font-family: 'MONTSERRAT';
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -101,7 +103,7 @@
 }
 
 .footer-bottom .text {
-    font-family: Montserat;
+    font-family: 'MONTSERRAT';
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
