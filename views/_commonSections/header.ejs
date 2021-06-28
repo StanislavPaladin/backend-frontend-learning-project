@@ -22,10 +22,10 @@
             <a class="logo" href="/"><img src="/assets/img/logo.svg" alt="logo">
             <span class="logo-text">BT LLC.</span>
             </a>
-            <div class="section"> <a class="link" href="/products">Продукты</a> </div>
-            <div class="section"> <a class="link" href="/news">Новости</a> </div>
-            <div class="section"> <a class="link" href="/about">О нас</a> </div>
-            <div class="section"> <a class="link" href="/contacts">Контакты</a> </div>
+            <div class="section <% if(active == 'products') {%>active<%} %> "> <a class="link" href="/products">Продукты</a> </div>
+            <div class="section <% if(active == 'news') {%>active<%} %> "> <a class="link" href="/news" id="news" >Новости</a> </div>
+            <div class="section <% if(active == 'about') {%>active<%} %> "> <a class="link" href="/about">О нас</a> </div>
+            <div class="section <% if(active == 'contacts') {%>active<%} %> "> <a class="link" href="/contacts">Контакты</a> </div>
             <div class="icon-wrapper">
                 <img class="search" src="/assets/fonts/unicons/search.svg" alt="search">
             </div>

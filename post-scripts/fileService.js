@@ -4,11 +4,12 @@ import sharp from 'sharp'
 
 
 class FileService {
-    async saveFile(file) {
+    saveFile(file) {
         try {
             const filename = uuid.v4() + '.png';
             const filepath = path.resolve('static', filename);
-            await file.mv(filepath);
+            file.mv(filepath);
+            return filename;
         } catch (e) {
             console.log('ERROR', e);
         }

@@ -2,15 +2,15 @@
     //Пока не придумал, как управлять этим по-другому. Пока остаётся в инлайн-скрипте
     document.addEventListener("DOMContentLoaded", function (event) {
         const background = document.getElementById('breadcrumbs-wrapper')
-        background.style.background = 'url(<%= data.img %>) center no-repeat fixed ';
+        background.style.background = 'url(<%= img %>) center no-repeat fixed ';
 
     });
 </script>
 <div class="breadcrumbs-layout">
     <div class="breadcrumbs-wrapper" id='breadcrumbs-wrapper'>
-        <div class="title"><%= data.title %>  </div>
+        <div class="title"><%= title %>  </div>
         <div class="breadcrumbs">
-            <a href="/">Главная</a> / <a class="active" href="#"><%= data.title %> </a>
+            <a href="/">Главная</a> / <a class="active" href="#"><%= title %> </a>
         </div>
     </div>
 </div>

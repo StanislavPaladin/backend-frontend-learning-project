@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from 'mongoose';
-import router from "./post-scripts//router.js";
+import router from "./post-scripts/router.js";
 import fileUpload from "express-fileupload";
 import nodemailer from "nodemailer";
 import authRouter from './auth-scripts//authRouter.js';
@@ -9,62 +9,42 @@ import authRouter from './auth-scripts//authRouter.js';
 import bodyParser from 'body-parser'
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-const PORT = 5000
-const DB_URL = `mongodb+srv://Admin:ltcntvgth1@cluster0.nr3hg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+const PORT = 5555;
+const DB_URL = `mongodb+srv://Admin:ltcntvgth1@cluster0.nr3hg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 const app = express()
-
+app.use(express.json())
 app.set('view engine', 'ejs');
 
-app.use(express.json())
+
 /* загрузка файлов */
 app.use(express.static('static'))
 app.use(fileUpload({}))
 /*  ednpoints */ 
 app.use('/api', router) //обрабатывает запросы, которые идут после /api  (http://localhost:5000/api/posts   etc.)
-app.use('/assets', express.static('assets'));
 app.use('/auth', authRouter)
+app.use('/assets', express.static('assets'));
 
 
 
 app.get('/', function(req, res) {
-    res.render('mainSections/index.ejs', {data: '/assets/img/test-img.jpg'});
+    res.render('mainSections/index.ejs', {data: '/assets/img/test-img.jpg',  active: ''});
 })
-app.get('/products', function(req, res) {
-  res.render('productsSections/index.ejs', {data: {img:'/assets/img/test-img.jpg', title: 'Продукты'}});
+app.get('/products',   function(req, res) {
+  res.render('productsSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'Продукты', active: 'products'});
 })
-app.get('/news', function(req, res) {
-  res.render('newsListSections/index.ejs', {data: {img:'/assets/img/test-img.jpg', title: 'Новости'}});
+app.get('/news', urlencodedParser, function(req, res) {  
+  res.render('newsListSections/index.ejs', {title: 'Новости', active: 'news', img: '/assets/img/test-img.jpg'});
 })
 app.get('/about', function(req, res) {
-  res.render('aboutSections/index.ejs', {data: {img:'/assets/img/test-img.jpg', title: 'О нас'}});
+  res.render('aboutSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'О нас', active: 'about'});
 })
 app.get('/contacts', function(req, res) {
-  res.render('contactsSections/index.ejs', {data: {img:'/assets/img/test-img.jpg', title: 'Контакты'}});
+  res.render('contactsSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'Контакты', active: 'contacts'});
 })
-
-// app.post('/about', urlencodedParser, function(req, res) {
-//     if (!req.body) {return req.status(400)}
-//       console.log(req.body);
-//       if (res.statusCode === 200) {
-//         res.render('./mainSections/main.ejs', {data: req.body});
-//         // main(req.body).catch(console.error);
-//       }
-// }) 
-
-// app.post('/post', urlencodedParser, function(req, res) {
-//   if (!req.body) {return req.status(400)}
-//     console.log(req.body);
-//     if (res.statusCode === 200) {
-//       res.render('about-success', {data: req.body});
-      
-//     }
-// }) 
-
-// app.get('/404', urlencodedParser, function(req, res) {
-//     res.render('404');
-// }) 
-
+app.get('/posts/:id', function(req, res) {
+  res.render('newsListSections/newsOne.ejs', {img:'/assets/img/test-img.jpg', title: 'Новости', active: 'news', data: res.data})
+})
 
 async function startApp() {
     try {

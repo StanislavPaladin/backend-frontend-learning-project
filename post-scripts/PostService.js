@@ -4,11 +4,11 @@ import sharp from "sharp";
 
 class PostService {
     async create(post, picture) {
-        // console.log(typeof(picture));
-        // const filename = fileService.saveFile(picture)
+        const filename = fileService.saveFile(picture)
         const createdPost = await Post.create({
             ...post,
-            // picture: filename
+            picture: filename,
+            date: new Date()
         })
         console.log('пост создан');
         return createdPost;
@@ -16,6 +16,11 @@ class PostService {
 
     async getAll() {
         const posts = await Post.find();
+        return posts
+    }
+
+    async getSomePosts() {
+        const posts = await Post.find().sort({date:1}).limit(3)
         return posts
     }
 
