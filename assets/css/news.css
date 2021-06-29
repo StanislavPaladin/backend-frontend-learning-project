@@ -19,6 +19,7 @@
 .news-big img {
     width: 950px;
     height: 700px;
+    margin-bottom: 30px;
 }
 
 .news-big .date {
@@ -258,4 +259,16 @@
     line-height: 21px;
     text-align: center;
     cursor: pointer;
+}
+
+.post-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.post-wrapper img {
+    width: 600px;
+    height: 400px;
 }

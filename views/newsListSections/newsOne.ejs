@@ -19,14 +19,20 @@
     <%- include ('../_commonSections/header.ejs') -%>
     <%- include ('../_commonSections/breadcrumbs.ejs') -%>
     <div class="main">
-        <% data %>
     </div>
     <%- include ('../_commonSections/footer.ejs') -%>
+    <a href="" class="" id="postId" name="<%= id %>"></a>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/assets/front-scripts/swiper.js"></script>
     <script src="/assets/front-scripts/menu.js"></script>
-    
+    <script src="/assets/front-scripts/getPost.js"></script>
+    <script>
+        // пустой элемент <a> задаётся для того, что-бы в него вложить id, который мы передаем шаблонизатором. Далее через js извлечь его, и сделать fetch запрос
+        //id задаётся статический, что-бы по нему находить элемент
+        // а в поле name закладывается id поста, по которому даём fetch запрос в базу данных
+       
+    </script>
 </body>
 
 </html>

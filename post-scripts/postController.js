@@ -24,6 +24,16 @@ class PostController {
         }
     }
 
+    async getLastPost (req, res) {
+        try {
+            const posts = await PostService.getlastPost();
+            return res.json(posts)
+            
+        } catch (e) {
+            res.status(500).json(e.message)
+        }
+    }
+
     async getSomePosts (req, res) {
         try {
             const posts = await PostService.getSomePosts();

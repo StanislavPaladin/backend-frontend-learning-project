@@ -24,6 +24,11 @@ class PostService {
         return posts
     }
 
+    async getlastPost() {
+        const posts = await Post.find().sort({date:1}).limit(1)
+        return posts
+    }
+
     async getOne(id) {
         if (!id) {
             throw new Error('не указан ID')
