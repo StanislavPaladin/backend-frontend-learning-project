@@ -75,7 +75,11 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
-
+.product .text-wrapper a:hover {
+    outline: none;
+    text-decoration: none;
+    border: none;
+}
 .products .product .text-wrapper .title {
     margin: 0 0 10px;
     padding: 0;

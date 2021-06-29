@@ -18,7 +18,7 @@ function getBreadcrumbs () {  //Т.к. для страниц постов/про
                 let post = document.createElement('div')
                 post.innerHTML = `<div class="post-wrapper">
                 <img class="image" src="../${result.picture1}" alt="image">
-                <div class="title" >${result.title}</div>
+                <div class="title" id='big-news-title'>${result.title}</div>
                 <div class="title">${result.subtitle}</div>
                 <div class="text">${result.paragraph1}</div>
                 </div>`;
