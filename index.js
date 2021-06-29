@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from 'mongoose';
 import router from "./post-scripts/router.js";
+import productRouter from "./products-scripts/productRouter.js"
 import fileUpload from "express-fileupload";
 import nodemailer from "nodemailer";
 import authRouter from './auth-scripts//authRouter.js';
@@ -18,12 +19,13 @@ app.set('view engine', 'ejs');
 
 
 /* загрузка файлов */
-app.use(express.static('static'))
+app.use(express.static('static')) //папка для сохранения картинок
 app.use(fileUpload({}))
 /*  ednpoints */ 
 app.use('/api', router) //обрабатывает запросы, которые идут после /api  (http://localhost:5000/api/posts   etc.)
+app.use('/api', productRouter)
 app.use('/auth', authRouter)
-app.use('/assets', express.static('assets'));
+app.use('/assets', express.static('assets')); //здесь статические файлы (js/css etc)
 
 
 
@@ -44,9 +46,12 @@ app.get('/contacts',  function(req, res) {
 })
 app.get('/posts/:id', function(req, res) {  
   let postId = req._parsedUrl.path.split('/')[2];  /*  не придумал другого способа, как вытянуть id поста */
-
   res.render('newsListSections/newsOne', {id: postId, data: req.body, title: 'Новости', active: 'news', img: '/assets/img/test-img.jpg'});
-  // res.render('newsListSections/newsOne.ejs', {img:'/assets/img/test-img.jpg', title: 'Новости', active: 'news', data: res.data})
+})
+
+app.get('/products/:id', function(req, res) {  
+  let productId = req._parsedUrl.path.split('/')[2];  /*  не придумал другого способа, как вытянуть id поста */
+  res.render('productsSections/productOne', {id: productId, data: req.body, title: 'Продукты', active: 'products', img: '/assets/img/test-img.jpg'});
 })
 
 async function startApp() {

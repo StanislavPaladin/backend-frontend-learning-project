@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/index.css" class="rel">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <script src="https://kit.fontawesome.com/7b548e20ff.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <%- include ('../_commonSections/header.ejs') -%>
+    <%- include ('../_commonSections/breadcrumbs.ejs') -%>
+    <div class="main">
+    </div>
+    <%- include ('../_commonSections/footer.ejs') -%>
+    <a href="" class="" id="postId" name="<%= id %>"></a>
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/front-scripts/swiper.js"></script>
+    <script src="/assets/front-scripts/menu.js"></script>
+    <script src="/assets/front-scripts/getOneProduct.js"></script>
+    <script>
+        // пустой элемент <a> задаётся для того, что-бы в него вложить id, который мы передаем шаблонизатором. Далее через js извлечь его, и сделать fetch запрос
+        //id задаётся статический, что-бы по нему находить элемент
+        // а в поле name закладывается id поста, по которому даём fetch запрос в базу данных
+       
+    </script>
+</body>
+
+</html>
