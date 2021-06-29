@@ -20,12 +20,12 @@ class PostService {
     }
 
     async getSomePosts() {
-        const posts = await Post.find().sort({date:1}).limit(3)
+        const posts = await Post.find().sort({date:-1}).limit(3)
         return posts
     }
 
     async getlastPost() {
-        const posts = await Post.find().sort({date:1}).limit(1)
+        const posts = await Post.find().sort({date:-1}).limit(1)
         return posts
     }
 

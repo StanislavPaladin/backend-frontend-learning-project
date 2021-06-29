@@ -42,7 +42,7 @@ app.get('/about', function(req, res) {
 app.get('/contacts',  function(req, res) {
   res.render('contactsSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'Контакты', active: 'contacts'});
 })
-app.get('/posts/:id', function(req, res) {
+app.get('/posts/:id', function(req, res) {  
   let postId = req._parsedUrl.path.split('/')[2];  /*  не придумал другого способа, как вытянуть id поста */
 
   res.render('newsListSections/newsOne', {id: postId, data: req.body, title: 'Новости', active: 'news', img: '/assets/img/test-img.jpg'});

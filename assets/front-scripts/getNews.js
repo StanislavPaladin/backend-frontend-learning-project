@@ -42,9 +42,10 @@ function getPostsList() {
                 let post = JSON.parse(res);
                 let onePost = post[0]; /* здесь получается массив из постов, а т.к. нужен только один - обращаемся к нему по индексу 0*/
                 let newsOne = document.createElement('div')
+                
                 newsOne.innerHTML = `
                 <div class="date">${onePost.date.split('T')[0]}</div>
-                <div class="title">${onePost.title}</div>
+                <div class="title" >${onePost.title}</div>
                 <div class="user">${onePost.author}</div>
                 <img class="image" src="${onePost.picture}"alt="image">
                 <div class="text">${onePost.content}</div>
