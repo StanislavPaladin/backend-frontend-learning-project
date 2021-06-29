@@ -4,7 +4,7 @@ import PostController from "./postController.js"
 const router = new Router()
 
 router.post('/posts', PostController.create);
-// router.get('/news', PostController.getAll);
+router.get('/newsAll', PostController.getAll);
 router.get('/news', PostController.getSomePosts);
 router.get('/getLast', PostController.getLastPost);
 router.get('/posts/:id', PostController.getOne);

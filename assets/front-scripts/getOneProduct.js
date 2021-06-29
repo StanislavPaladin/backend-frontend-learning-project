@@ -19,7 +19,6 @@ function getBreadcrumbs () {  //Т.к. для страниц постов/про
                 post.innerHTML = `<div class="post-wrapper">
                 <img class="image" src="../${result.picture1}" alt="image">
                 <div class="title" id='big-news-title'>${result.title}</div>
-                <div class="title">${result.subtitle}</div>
                 <div class="text">${result.paragraph1}</div>
                 </div>`;
                 main[0].append(post)

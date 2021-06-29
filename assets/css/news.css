@@ -290,3 +290,9 @@
     margin-bottom: 30px;
     font-weight: bold;
 }
+
+#news-main img {
+    width: 500px;
+    height: 400px;
+    margin-right: 20px;
+}
