@@ -10,7 +10,15 @@
     <div class="breadcrumbs-wrapper" id='breadcrumbs-wrapper'>
         <div class="title"><%= title %>  </div>
         <div class="breadcrumbs">
-            <a href="/">Главная</a> / <a class="active" href="#"><%= title %> </a>
+           
+            <%if (productName !=='') { %>
+                <a><a href="/">Главная</a> / <a  href="/<%= active %>"><%= title %> </a> / <a class="active" href="#"><%= productName %></a>
+                <% }
+                else { %>
+                    <a href="/">Главная</a> / <a class="active" href="#"><%= title %> </a>
+               <% }
+                %>
+            
         </div>
     </div>
 </div>

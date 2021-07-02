@@ -12,6 +12,7 @@ router.post('/registration', [
 router.post('/login', controller.login);
 router.get('/users',  controller.getUsers);
 router.post('/delete', controller.deleteUser)
+router.post('/sendForm', controller.sendForm)
 // roleMiddleWare(['ADMIN'])
 
 export default router;

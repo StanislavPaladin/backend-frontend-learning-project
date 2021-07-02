@@ -1,0 +1,19 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Слой_1" x="0px" y="0px" style="color: #0ac775; width: 200px;height: 200px;white-space: preserve-spaces;">
+    <style>
+        @keyframes left_do { 0% { stroke-dashoffset: 361.35px; animation-timing-function: cubic-bezier(0.765086,0,1,1); } 25% { stroke-dashoffset: 240.9px; } 50% { stroke-dashoffset: 240.9px; animation-timing-function: cubic-bezier(0.688308,0,0.58,1); } 75% { stroke-dashoffset: 120.45px; } 100% { stroke-dashoffset: 120.45px; } }
+        @keyframes right_do { 0% { stroke-dashoffset: 361.35px; animation-timing-function: cubic-bezier(0.744881,0,1,1); } 25% { stroke-dashoffset: 240.9px; } 50% { stroke-dashoffset: 240.9px; animation-timing-function: cubic-bezier(0.666083,0,0.58,1); } 75% { stroke-dashoffset: 120.45px; } 100% { stroke-dashoffset: 120.45px; } }
+        @keyframes a0_t { 0% { transform: translate(100px,100.8px) rotate(0deg) translate(-100.05px,-100px); } 80% { transform: translate(100px,100.8px) rotate(0deg) translate(-100.05px,-100px); animation-timing-function: cubic-bezier(0.42,0,0.58,1); } 100% { transform: translate(100px,100.8px) rotate(180deg) translate(-100.05px,-100px); } }
+        @keyframes cs_2__do { 0% { stroke-dashoffset: -129.355px; } 25% { stroke-dashoffset: -129.355px; animation-timing-function: cubic-bezier(0,0.379419,0.58,1); } 50% { stroke-dashoffset: 0px; } 60% { stroke-dashoffset: -0.219042px; animation-timing-function: cubic-bezier(0.550147,0,0.361176,1); } 100% { stroke-dashoffset: -129.355px; } }
+        @keyframes cs_3__do { 0% { stroke-dashoffset: -129.355px; } 25% { stroke-dashoffset: -129.355px; animation-timing-function: cubic-bezier(0,0.37956,0.58,1); } 50% { stroke-dashoffset: 0px; } 60% { stroke-dashoffset: -0.219042px; animation-timing-function: cubic-bezier(0.549183,0,0.368862,1); } 100% { stroke-dashoffset: -129.355px; } }
+    </style>
+    <path id="bg" class="st0" d="M200,50L200,150C200,177.5,177.5,200,150,200L50,200C22.5,200,0,177.5,0,150L0,50C0,22.5,22.5,0,50,0L150,0C177.5,0,200,22.5,200,50Z" fill="#0ac775"/>
+    <g>
+        <path id="left" class="st1" d="M58.5,148.7C36.6,148.7,36.6,119.9,36.6,100.8C36.6,80.8,36.6,51.4,60.3,51.4" stroke="#ffffff" fill="none" stroke-width="16" stroke-dasharray="120.45 120.45" stroke-dashoffset="361.35000000000002" style="animation: left_do 2s linear infinite both;"/>
+        <path id="right" class="st1" d="M139.6,51.3C163.3,51.3,163.3,80.7,163.3,100.7C163.3,119.8,163.3,148.6,141.4,148.6" stroke="#ffffff" fill="none" stroke-width="16" stroke-dasharray="120.45 120.45" stroke-dashoffset="361.35000000000002" style="animation: right_do 2s linear infinite both;"/>
+    </g>
+    <g transform="translate(100,100.8) translate(-100.05,-100)" style="animation: a0_t 2s linear infinite both;">
+        <path id="cs_2_" class="st1" d="M121.8,61.8L121.8,51.7C121.8,46.4,117.5,42.1,112.2,42.1L87.8,42.1C82.5,42.1,78.2,46.4,78.2,51.7L78.2,107.4C78.2,112.7,82.5,117,87.8,117L112.3,117C117.6,117,121.9,112.7,121.9,107.4L121.9,92.6C121.9,87.3,117.6,83,112.3,83L87.8,83C82.5,83,78.2,87.3,78.2,92.6L78.2,107.4" fill="none" stroke="#ffffff" stroke-width="16" stroke-linejoin="miter" stroke-miterlimit="4" stroke-dasharray="258.70999999999998" stroke-dashoffset="-129.35499999999999" style="animation: cs_2__do 2s linear infinite both;"/>
+        <path id="cs_3_" class="st1" d="M78.2,138.2L78.2,148.3C78.2,153.6,82.5,157.9,87.8,157.9L112.3,157.9C117.6,157.9,121.9,153.6,121.9,148.3L121.9,92.6C121.9,87.3,117.6,83,112.3,83L87.8,83C82.5,83,78.2,87.3,78.2,92.6L78.2,107.4C78.2,112.7,82.5,117,87.8,117L112.3,117C117.6,117,121.9,112.7,121.9,107.4L121.9,92.6" fill="none" stroke="#ffffff" stroke-width="16" stroke-dasharray="258.70999999999998" stroke-dashoffset="-129.35499999999999" style="animation: cs_3__do 2s linear infinite both;"/>
+    </g>
+</svg>

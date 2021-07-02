@@ -139,6 +139,8 @@
 }
 
 .news-list .items .item .text .title {
+    align-self: flex-start;
+    margin-left: 20px;
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -146,8 +148,15 @@
     line-height: 28px;
     color: #233142;
 }
+.news-list .items .item .text .title:hover{
+    text-decoration: none;
+    outline: none;
+    border:none;
+    
+}
 
 .news-list .items .item .text .date {
+    margin-left: 20px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;

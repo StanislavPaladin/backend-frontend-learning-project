@@ -18,7 +18,9 @@
 </head>
 
 <body>
-
+    <%- include ('../_commonSections/loader.ejs') -%>
+    <%- include ('../_commonSections/search-modal.ejs') -%>
+    
     <%- include ('../_commonSections/header.ejs') -%>
     <div class="main">
         <%- include ('../mainSections/slider.ejs') -%>
@@ -31,8 +33,9 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/assets/front-scripts/swiper.js"></script>
     <script src="/assets/front-scripts/menu.js"></script>
-    <script src="/assets/front-scripts/getProductsAtMainPage.js"></script>
-    <script src="/assets/front-scripts/getNewsAtMainPage.js"></script>
+    <script src="/assets/front-scripts/loader.js"></script>
+    <script src="/assets/front-scripts/search-modal.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

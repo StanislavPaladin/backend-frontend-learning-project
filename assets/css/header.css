@@ -125,6 +125,13 @@ body {
     cursor:pointer;
 }
 
+.header .sections .icon-wrapper a i {
+    color: #fff;
+}
+.header .sections .icon-wrapper a i:hover{
+    color: #0AC775;
+}
+
 .header .section:hover{
     color: #0AC775;
 }

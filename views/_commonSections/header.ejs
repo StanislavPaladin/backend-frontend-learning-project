@@ -1,3 +1,24 @@
+
+
+<div class="modal" role="dialog" tabindex="-1" aria-labelledby="search-modal" id="search-modal">
+    <div class="search-block">
+        <form class="search-form" id="search-form">
+            <label>
+                <input type="search" class="search-input" value placeholder="Искать" id="search">
+                <button type="button" class="search-button" id="get-search-results">
+                    <i class="fas fa-search"></i>
+                </button>
+            </label>
+        </form id="search-form">
+        <div class="results">
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
 <div class="header-wrapper">
     <div class="header absolute w-100">
         <div class="sections">
@@ -26,8 +47,13 @@
             <div class="section <% if(active == 'news') {%>active<%} %> "> <a class="link" href="/news" id="news" >Новости</a> </div>
             <div class="section <% if(active == 'about') {%>active<%} %> "> <a class="link" href="/about">О нас</a> </div>
             <div class="section <% if(active == 'contacts') {%>active<%} %> "> <a class="link" href="/contacts">Контакты</a> </div>
+           
             <div class="icon-wrapper">
-                <img class="search" src="/assets/fonts/unicons/search.svg" alt="search">
+                <a href="#" id="search-modal-toggle"data-toggle="modal" data-target="#search-modal">
+                    <i class="fas fa-search" ></i>
+
+                </a>
+               
             </div>
     </div>
 </div>

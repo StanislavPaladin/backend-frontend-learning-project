@@ -1,17 +1,23 @@
 import Product from "./product.js"
 import fileService from "./fileService.js";
 import sharp from "sharp";
+import  { transliterate, slugify } from "transliteration";
+
+
 
 class ProductService {
-    async create(post, picture1, picture2, picture3) {
-        const filename1 = fileService.saveFile(picture1)
-        const filename2 = fileService.saveFile(picture2)
-        const filename3 = fileService.saveFile(picture3)
+    async create(post, picture) {
+        let titleTranslit = slugify(post.title, {
+            separator: '_',
+            unknown: '-'
+          })
+        const filename = fileService.saveFile(picture)
         const createdPost = await Product.create({
             ...post,
-            picture1: filename1,
-            picture2: filename2,
-            picture3: filename3,
+            alias: titleTranslit,
+            date: new Date(),
+            picture: filename,
+
         })
         console.log('пост создан');
         return createdPost;
@@ -36,7 +42,7 @@ class ProductService {
         if (!id) {
             throw new Error('не указан ID')
         }
-        const post = await Product.findById(id)
+        const product = await Product.findOne(id)
         return post;
     }
 
@@ -44,7 +50,12 @@ class ProductService {
         if (!post._id) {
             throw new Error('не указан ID')
         }
+         let titleTranslit = slugify(post.title, {
+            separator: '_',
+            unknown: '-'
+          })
         const updatedPost = await Product.findByIdAndUpdate(post._id, post, {
+            alias: titleTranslit,
             new: true
         })
         return updatedPost;

@@ -5,6 +5,9 @@ import productRouter from "./products-scripts/productRouter.js"
 import fileUpload from "express-fileupload";
 import nodemailer from "nodemailer";
 import authRouter from './auth-scripts//authRouter.js';
+import Product from "./products-scripts/product.js"
+import Post from "./post-scripts/post.js"
+
 
 
 import bodyParser from 'body-parser'
@@ -28,31 +31,60 @@ app.use('/auth', authRouter)
 app.use('/assets', express.static('assets')); //здесь статические файлы (js/css etc)
 
 
+//обработка запросов 
 
-app.get('/', function(req, res) {
-    res.render('mainSections/index.ejs', {data: '/assets/img/test-img.jpg',  active: ''});
+app.post('/search', urlencodedParser,async function(req, res) {
+  const query =JSON.parse(JSON.stringify(req.body));
+  const queryToString = Object.values(query).toString();  
+await Product.find({'title' : new RegExp(queryToString, 'i')}, async function(err, results){
+    console.log('PRODUCTRESULTS', results);
+    await Post.find({'title' : new RegExp(queryToString, 'i')}, function(err, postResults){
+      console.log('POSTRESULTS', postResults);
+      return res.status(200).json({results:results, postResults: postResults});
+    });
+    
+});
+
+});
+
+
+app.get('/', async function(req, res) {
+  const products = await Product.find();
+  const news = await Post.find().sort({date:-1}).limit(3);
+    res.render('mainSections/index.ejs', {data: '/assets/img/test-img.jpg',  active: '', news: news, products: products, icon: 'fas fa-user', results: ''});
 })
-app.get('/products',   function(req, res) {
-  res.render('productsSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'Продукты', active: 'products'});
+app.get('/products',  async function(req, res) {
+  const products = await Product.find();
+  res.render('productsSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'Продукты', active: 'products', products: products, productName:''});
 })
-app.get('/news', urlencodedParser, function(req, res) {  
-  res.render('newsListSections/index.ejs', {title: 'Новости', active: 'news', img: '/assets/img/test-img.jpg'});
+app.get('/news', urlencodedParser, async function(req, res) {  
+  const lastPost = await Post.find().sort({date:-1}).limit(1);
+  const news = await Post.find().sort({date:-1}).limit(3);
+  res.render('newsListSections/index.ejs', {title: 'Новости', active: 'news', img: '/assets/img/test-img.jpg', productName:'', lastPost: lastPost[0], news: news });
 })
 app.get('/about', function(req, res) {
-  res.render('aboutSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'О нас', active: 'about'});
+  res.render('aboutSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'О нас', active: 'about', productName:''});
 })
 app.get('/contacts',  function(req, res) {
-  res.render('contactsSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'Контакты', active: 'contacts'});
+  res.render('contactsSections/index.ejs',  {img:'/assets/img/test-img.jpg', title: 'Контакты', active: 'contacts', productName:''});
 })
-app.get('/posts/:id', function(req, res) {  
-  let postId = req._parsedUrl.path.split('/')[2];  /*  не придумал другого способа, как вытянуть id поста */
-  res.render('newsListSections/newsOne', {id: postId, data: req.body, title: 'Новости', active: 'news', img: '/assets/img/test-img.jpg'});
+app.get('/news/:id', async function(req, res) {  
+  const postsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
+  const post = await Post.findOne({alias : postsTitle});
+  const title = post.title;
+  res.render('newsListSections/newsOne', {data: req.body, title: 'Новости', active: 'news', img: '/assets/img/test-img.jpg', post: post, productName: title});
+})
+app.get('/products/:id', async function(req, res) {  
+  const productsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
+  const product = await Product.findOne({alias : productsTitle});
+  const title = product.title;
+  res.render('productsSections/productOne.ejs', {img:'/assets/img/test-img.jpg', title: 'Продукты', active: 'products', product: product, productName: title})
 })
 
-app.get('/products/:id', function(req, res) {  
-  let productId = req._parsedUrl.path.split('/')[2];  /*  не придумал другого способа, как вытянуть id поста */
-  res.render('productsSections/productOne', {id: productId, data: req.body, title: 'Продукты', active: 'products', img: '/assets/img/test-img.jpg'});
-})
+app.post('/sendForm', urlencodedParser, async function(req, res) {
+  /*   */
+  sendContactsFormData(req.body);
+} )
 
 async function startApp() {
     try {
@@ -65,15 +97,15 @@ async function startApp() {
 
 startApp()
 
-
-async function main(data) {
+//отправка приветсвенного письма
+async function welcomeMessage(data) {
     let transporter = nodemailer.createTransport({
       host: "smtp.yandex.ru",
-      port: 587,
-      secure: false, // true for 465, false for other ports
+      port: 465,
+      secure: true, // true for 465, false for other ports
       auth: {
-        user: 'psamailtest@yandex.ru', // generated ethereal user
-        pass: 'ltcntvgth1' // generated ethereal password
+        user: 'psamailtest@yandex.ru',
+        pass: 'ltcntvgth12345'
       },
     });
     console.log(data.email);
@@ -88,5 +120,27 @@ async function main(data) {
     console.log("Message sent: %s", info.messageId);
   }
   
+  //Отправка письма с данными из формы в контактах
+  async function sendContactsFormData(data) {
+    let transporter = nodemailer.createTransport({
+      host: "smtp.yandex.ru",
+      port: 465,
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: 'psamailtest@yandex.ru',
+        pass: 'ltcntvgth12345'
+      },
+    });
+    console.log(data)
+    // send mail with defined transport object
+    let info = await transporter.sendMail({
+      from: '"Stanislav Paladin" <psamailtest@yandex.ru>', // sender address
+      to: `<psamailtest@yandex.ru>`, // list of receivers
+      subject: "Contact me! ", // Subject line
+      text: "", // plain text body
+      html: `please contact me! <br/> my name: ${data.name} <br/> my email: ${data.email} <br/> my phone: ${data.phone} <br/> my message: ${data.message}`, // html body
+    });
+    console.log("Message sent: %s", info.messageId);
+  }
   
 

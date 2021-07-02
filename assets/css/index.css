@@ -12,7 +12,8 @@
 @import "./products.css";
 @import "./contacts.css";
 @import "./form.css";
-
+@import "./loader.css";
+@import "./modals.css";
 
 html {
     overflow-y: scroll;

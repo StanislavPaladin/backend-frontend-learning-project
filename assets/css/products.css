@@ -30,15 +30,18 @@
 }
 
 .products .main {
+    border: 1px solid red;
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: #233142;
-    padding-left: 135px;
-    padding-right: 135px;
+    padding-left: 235px;
+    padding-right: 235px;
     height: 650px;
     width: 1920px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 

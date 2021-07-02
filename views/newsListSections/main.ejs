@@ -3,46 +3,28 @@
 </div>
 <div class="news-wrapper">
     <div class="news-big">
-        <!-- <div class="date">Дата</div>
-        <div class="title">Заголовок</div>
-        <div class="user">Username</div>
-        <img src="/assets/img/test-img.jpg" alt="image">
-        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, non facilis. Impedit velit nemo in quas id, molestiae vel deleniti autem doloremque sit atque cumque ipsum inventore distinctio eaque aperiam ad assumenda, facilis quo dolorem quasi odit maiores sequi! Sit explicabo pariatur numquam sunt quidem ratione dignissimos eveniet consectetur modi.</div> -->
+        <div class="date"><%=lastPost.date.getDate() + '/' + (lastPost.date.getMonth() + 1) + '/' + lastPost.date.getFullYear()%></div>
+        <div class="title"><%=lastPost.title %> </div>
+        <div class="user"><%=lastPost.author%></div>
+        <img src="<%=lastPost.picture%>" alt="image">
+        <div class="text"><%=lastPost.content%></div>
     </div>
     <div class="news-list">
-        <div class="search">
-            <input type="search" class="input search">
-            <img src="/assets/fonts/unicons/search-green.svg" alt="search">
-        </div>
         <div class="title">Популярные посты</div>
         <ul class="items">
-            <!-- <li class="item">
-                <img class="image" src="/assets/img/test-img.jpg" alt="image">
+            <% news.forEach(item => { %>
+            <li class="item">
+                <a href="/news/<%=item.alias%>"><img class="image" src="<%=item.picture%>" alt=""></a>
                 <div class="text">
-                    <p class="title">Заголовок</p>
+                    <a class="title" href="/news/<%=item.alias%>" class="title">
+                        <p><%=item.title%></p>
+                    </a>
                     <div class="date">
                         <img src="/assets/fonts/unicons/clock.svg" alt="image">
-                        Дата</div>
+                        <%=item.date.getDate() + '/' + (item.date.getMonth() + 1) + '/' + item.date.getFullYear()%></div>
                 </div>
             </li>
-            <li class="item">
-                <img class="image" src="/assets/img/test-img.jpg" alt="image">
-                <div class="text">
-                    <p class="title">Заголовок</p>
-                    <div class="date">
-                        <img src="/assets/fonts/unicons/clock.svg" alt="image">
-                        Дата</div>
-                </div>
-            </li>
-            <li class="item">
-                <img class="image" src="/assets/img/test-img.jpg" alt="image">
-                <div class="text">
-                    <p class="title">Заголовок</p>
-                    <div class="date">
-                        <img src="/assets/fonts/unicons/clock.svg" alt="image">
-                        Дата</div>
-                </div>
-            </li> -->
+            <% }) %>
         </ul>
     </div>
 </div>

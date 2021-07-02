@@ -1,46 +1,14 @@
+
+
 <div class="products-wrapper">
     <div class="items">
-        <!-- <div class="item">
-            <a href="#"><img src="/assets/img/test-img.jpg" alt=""></a>
-            <a href="#" class="title">Программа для соревнований</a>
+        <% products.forEach(product => { %>
+        <li class="item">
+            <a href="/products/<%=product.alias%>"><img src="<%=product.picture%>" alt=""></a>
+            <a href="/products/<%=product.alias%>" class="title"><%=product.title%></a>
             <div class="line"></div>
-            <span class="text">Легка в использовании</span>
-        </div>
-        <div class="item">
-            <a href="#"><img src="/assets/img/test-img.jpg" alt=""></a>
-            <a href="#" class="title">Программа лояльности</a>
-            <div class="line"></div>
-            <span class="text">Программа повышения лояльности к бренду</span>
-        </div>
-        <div class="item">
-            <a href="#"><img src="/assets/img/test-img.jpg" alt=""></a>
-            <a href="#" class="title">Know.me</a>
-            <div class="line"></div>
-            <span class="text">Браслет, который спасает жизнь</span>
-        </div>
-        <div class="item">
-            <a href="#"><img src="/assets/img/test-img.jpg" alt=""></a>
-            <a href="#" class="title">Защита предметов искусства</a>
-            <div class="line"></div>
-            <span class="text">8-ступенчатая защита подлинности картин</span>
-        </div>
-        <div class="item">
-            <a href="#"><img src="/assets/img/test-img.jpg" alt=""></a>
-            <a href="#" class="title">Защита запчастей от подделки</a>
-            <div class="line"></div>
-            <span class="text">Разработка на основе NFC технологии</span>
-        </div>
-        <div class="item">
-            <a href="#"><img src="/assets/img/test-img.jpg" alt=""></a>
-            <a href="#" class="title">Система прослеживаемости продукции</a>
-            <div class="line"></div>
-            <span class="text">Основана на оптическом и радиочастотном типах маркировки товара</span>
-        </div>
-        <div class="item">
-            <a href="#"><img src="/assets/img/test-img.jpg" alt=""></a>
-            <a href="#" class="title">Образовательная платформа</a>
-            <div class="line"></div>
-            <span class="text">Единая образовательная система</span>
-        </div> -->
+            <span class="text"><%=product.description%></span>
+        </li>
+        <% }) %>
     </div>
 </div>

@@ -5,70 +5,20 @@
             <span>Компании</span>
         </div>
         <div class="main" id="products-main">
-            <!-- <div class="product ">
-                <div class="icon">
-                    <i class="fas fa-user"></i>
+            <% products.forEach(product => { %>
+                <div class="product">
+                    <div class="icon">
+                        <i class="<%=icon%>"></i>
+                    </div>
+                    <div class="text-wrapper">
+                        <a href="/products/<%=product.alias%>" class="title">
+                            <div class="title"><%=product.title%></div>
+                            <div class="text"><%=product.description%></div>
+                        </a>
+                    </div>
+                    
                 </div>
-                <div class="text-wrapper">
-                    <div class="title">Программа для проведения соревнований</div>
-                    <div class="text">Легка в использовании</div>
-                </div>
-            </div>
-            <div class="product ">
-                <div class="icon">
-                    <i class="fas fa-desktop"></i>
-                </div>
-                <div class="text-wrapper">
-                    <div class="title">Программа лояльности</div>
-                    <div class="text">Программа повышения лояльности к бренду</div>
-                </div>
-            </div>
-            <div class="product ">
-                <div class="icon">
-                    <i class="fas fa-heartbeat"></i>
-                </div>
-                <div class="text-wrapper">
-                    <div class="title">Know.Me</div>
-                    <div class="text">Браслет, который спасает жизнь</div>
-                </div>
-            </div>
-            <div class="product ">
-                <div class="icon">
-                    <i class="fas fa-lock"></i>
-                </div>
-                <div class="text-wrapper">
-                    <div class="title">Защита Предметов Искусства</div>
-                    <div class="text">8-ступенчатая защита подлинности картин</div>
-                </div>
-            </div>
-            <div class="product ">
-                <div class="icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <div class="text-wrapper">
-                    <div class="title">Защита Запчастей От Подделки</div>
-                    <div class="text">Разработка на основе NFC технологии</div>
-                </div>
-            </div>
-            <div class="product ">
-                <div class="icon">
-                    <i class="fas fa-globe-asia"></i>
-                </div>
-                <div class="text-wrapper">
-                    <div class="title">Система Прослеживаемости Продукции</div>
-                    <div class="text">Основана на оптическом и радиочастотном типах маркировки товара</div>
-                </div>
-            </div>
-            <div class="product ">
-                <div class="icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <div class="text-wrapper">
-                    <div class="title">Образовательная Платформа</div>
-                    <div class="text">Единая образовательная система</div>
-                </div>
-            </div> -->
-    
+                <% }) %>
         </div>
     </div>
 </div>

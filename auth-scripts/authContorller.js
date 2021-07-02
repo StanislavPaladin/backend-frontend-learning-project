@@ -17,8 +17,6 @@ const generateAccessToken = (id, roles) => {
 
 class authController {
     async registration(req, res) {
-        console.log('REGISTRATION');
-        console.log(req.body);
         try {
             const errors = validationResult(req);
             if(!errors.isEmpty()) {
@@ -101,7 +99,16 @@ class authController {
         }
     }
 
-
+    async sendForm(req, res) {
+        try {
+            const {email, username, phone, message} = req.body
+            if(!req.body)
+            return  res.json(req.body)
+        }
+        catch(e) {
+            console.log(e);
+        }
+    }
     
 
 }

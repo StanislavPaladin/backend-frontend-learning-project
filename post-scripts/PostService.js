@@ -1,12 +1,17 @@
 import Post from "./post.js"
 import fileService from "./fileService.js";
 import sharp from "sharp";
-
+import  { transliterate, slugify } from "transliteration";
 class PostService {
     async create(post, picture) {
         const filename = fileService.saveFile(picture)
+        let titleTranslit = slugify(post.title, {
+            separator: '_',
+            unknown: '-'
+          })
         const createdPost = await Post.create({
             ...post,
+            alias: titleTranslit,
             picture: filename,
             date: new Date()
         })
