@@ -125,10 +125,10 @@ body {
     cursor:pointer;
 }
 
-.header .sections .icon-wrapper a i {
+.header .sections .icon-wrapper  i {
     color: #fff;
 }
-.header .sections .icon-wrapper a i:hover{
+.header .sections .icon-wrapper  i:hover{
     color: #0AC775;
 }
 

@@ -4,7 +4,8 @@ import sharp from "sharp";
 import  { transliterate, slugify } from "transliteration";
 class PostService {
     async create(post, picture) {
-        const filename = fileService.saveFile(picture)
+        console.log(picture);
+        // const filename = fileService.saveFile(picture)
         let titleTranslit = slugify(post.title, {
             separator: '_',
             unknown: '-'
@@ -12,7 +13,7 @@ class PostService {
         const createdPost = await Post.create({
             ...post,
             alias: titleTranslit,
-            picture: filename,
+            picture: picture,
             date: new Date()
         })
         console.log('пост создан');

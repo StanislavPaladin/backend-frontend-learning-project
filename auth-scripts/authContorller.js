@@ -12,7 +12,7 @@ const generateAccessToken = (id, roles) => {
         id,
         roles
     }
-    return jwt.sign(payload, secret, {expiresIn: `24h`})
+    return jwt.sign(payload, secret.secret, {expiresIn: `24h`})
 }
 
 class authController {
@@ -22,15 +22,14 @@ class authController {
             if(!errors.isEmpty()) {
                 return res.status(400).json({message: 'Ошибка при регистрации', errors})
             }
-            const {username, password} = req.body
-            const applicant = await User.findOne({username})
+            const {email, password} = req.body
+            const applicant = await User.findOne({email})
             if (applicant) {
-                
                 return res.status(400).json({message: "Пользователь с таким именем уже существует"})
             }
             const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-            const userRole = await Role.findOne({value: "USER"}) 
-            const user = new User ({username: username, password: hashPassword , roles: [userRole.value]  })
+            const userRole = await Role.findOne({value: "ADMIN"}) 
+            const user = new User ({email: email, password: hashPassword , roles: [userRole.value]  })
             await user.save();
             console.log('register success');
             
@@ -45,8 +44,8 @@ class authController {
 
     async login(req, res) {
         try {
-            const {username, password} = req.body
-            const user = await User.findOne({username})
+            const {email, password} = req.body
+            const user = await User.findOne({email})
             if (!user) {
                 return res.status(400).json({message:"Такой пользователь не найден"})
             }
@@ -74,14 +73,14 @@ class authController {
 
     async deleteUser(req, res) {
         try {
-            const {_id, username} = req.body
-            const user = await User.findOne({username})
+            const {_id, email} = req.body
+            const user = await User.findOne({email})
             if (!user) {
                 
                 return res.status(400).json({message: "Пользователь не найден"})
             }
             await User.remove({_id: user._id})
-            console.log('', {username}, "удалён");
+            console.log('', {email}, "удалён");
             await this.getUsers()
             return res.json({message: "Пользователь удалён"})
         }
@@ -101,7 +100,7 @@ class authController {
 
     async sendForm(req, res) {
         try {
-            const {email, username, phone, message} = req.body
+            const {email, phone, message} = req.body
             if(!req.body)
             return  res.json(req.body)
         }

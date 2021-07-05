@@ -2,7 +2,6 @@ const searchInput = document.querySelector('.search-input');
 
 function searchModalController() {
     const searchModal = document.querySelector('#search-modal');
-    const modalBtn = document.querySelector('#search-modal-toggle');
     const body = document.querySelector('body');
     let input = document.querySelector('.search-input');
     let getResults = document.querySelector('#get-search-results');
@@ -11,7 +10,7 @@ function searchModalController() {
     //работа с поисковой строкой
     getResults.addEventListener('click', async function () {
         if (!$) $ = jQuery;
-        let form = $("#search-form"); // чтобы не переопределить что-то глобальное
+        let form = $("#login-form"); // чтобы не переопределить что-то глобальное
         let formWrapper = form.parent();
         $.ajax({
             type: "POST",
@@ -54,7 +53,7 @@ function searchModalController() {
     //показ и отключение модалки
     body.addEventListener('click', function (e) {
         let target = e.target;
-        if (target.matches('i')) {
+        if (target.matches('#search-modal-trigger')) {
             searchModal.classList.add('show')
         } else if (target.matches('#search-modal')) {
             searchModal.classList.remove('show')

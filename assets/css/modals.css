@@ -1,5 +1,5 @@
 .modal {
-    z-index: 9999;
+    z-index: 9;
     display: none;
     transition: 0.4s;
 }
@@ -52,9 +52,10 @@
     border: none;
     background-color: #fff;
 }
-.modal .search-block .search-form label .search-button:focus{
-    border:none;
-    outline:none;
+
+.modal .search-block .search-form label .search-button:focus {
+    border: none;
+    outline: none;
 }
 
 .modal .search-block .search-form label .search-button i {
@@ -84,12 +85,116 @@
     color: black;
     letter-spacing: 0.02em;
 }
+
 .modal .search-block .results a {
     text-decoration: none;
 }
+
 .modal .search-block .results .search-title:hover {
     color: #0ac775;
     text-decoration: none;
     outline: none;
     border: none
+}
+
+.modal.login {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 500px;
+    background-color: #fff;
+    transition: 0.4s;
+
+}
+
+.modal.login.show {
+    display: block;
+    background-color: rgba(32, 30, 30, 0.7);
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+
+.modal .login-form label {
+    position: fixed;
+    top: 100px;
+    left: calc(50% - 300px);
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.modal .login-form label input {
+    margin-bottom: 20px;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding-bottom: 5px;
+}
+.modal .login-form label input:focus{
+    border: none;
+    outline: none;
+}
+
+.modal .login-form .title {
+    font-size: 2em;
+    background: linear-gradient(135deg, #0ac775 20%, #339966 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding: 0.3em 0.6em;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 46px;
+}
+
+.modal .login-form .login-button {
+    width: 100px;
+    height: 50px;
+    border: 1px solid #0ac775;
+    background-color: #0ac775;
+    transition: 0.5s;
+}
+.modal .login-form .login-button:hover{
+    background-color: #fff;
+    transition: 0.5s;
+}
+
+.login-info {
+    z-index: 9999;
+    display: none;
+    width: 300px;
+    height: 80px;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    transition: 0.3s;
+}
+
+.login-info.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    color: #fff;
+    font-size: 16px;
+    font-family: Montserrat;
+}
+
+.login-info.success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    color: #fff;
+    font-size: 16px;
+    font-family: Montserrat;
 }
