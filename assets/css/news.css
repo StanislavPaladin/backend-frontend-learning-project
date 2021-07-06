@@ -1,15 +1,21 @@
 .news-wrapper {
-    padding-left: 135px;
-    padding-right: 135px;
+    padding-left: 350px;
+    padding-right: 350px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+}
+
+.news-wrapper .far {
+    margin-right: 10px;
+    color: #0AC775;
 }
 
 /*  left side */
 .news-big {
     margin-top: 50px;
+    margin-right: 50px;
     width: 950px;
     display: flex;
     flex-direction: column;
@@ -18,7 +24,7 @@
 }
 
 .news-big img {
-    width: 950px;
+    width: 750px;
     height: 700px;
     margin-bottom: 30px;
 }
@@ -56,7 +62,8 @@
     line-height: 28px;
     margin-bottom: 50px;
 }
-.news-big .text .link-news:hover{
+
+.news-big .text .link-news:hover {
     text-decoration: none;
     outline: none;
     border: none;
@@ -65,7 +72,7 @@
 /* right side */
 
 .news-list {
-    margin-top: 100px;
+    margin-top: 120px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -125,7 +132,7 @@
 .news-list .items .item .image {
     cursor: pointer;
     width: 250px;
-    height: 210px;
+    height: 250px;
 }
 
 .news-list .items .item .text {
@@ -148,11 +155,12 @@
     line-height: 28px;
     color: #233142;
 }
-.news-list .items .item .text .title:hover{
+
+.news-list .items .item .text .title:hover {
     text-decoration: none;
     outline: none;
-    border:none;
-    
+    border: none;
+
 }
 
 .news-list .items .item .text .date {
@@ -285,23 +293,18 @@
     flex-direction: column;
 }
 
-.post-wrapper img {
+/* .post-wrapper img {
     width: 600px;
     height: 400px;
+} */
+
+.post-wrapper .text {
+    margin-right: 350px;
+    margin-left: 350px;
 }
 
-.post-wrapper .text{
-    margin-right: 135px;
-    margin-left: 135px;
-}
-.post-wrapper .date{
+.post-wrapper .date {
     margin-top: 30px;
     margin-bottom: 30px;
     font-weight: bold;
-}
-
-#news-main img {
-    width: 500px;
-    height: 400px;
-    margin-right: 20px;
 }

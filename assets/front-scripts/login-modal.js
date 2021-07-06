@@ -61,6 +61,8 @@ function loginModalController() {
                 localStorage.setItem('token', Object.values(res)) ;
                 loginModal.classList.remove('show')
                 setTimeout(hideInfo, 2000)
+                emailField.value = '';
+                passwordField.value = '';
             }
         });
         request.send(user);
@@ -70,8 +72,6 @@ function loginModalController() {
         const  loginInfo = document.getElementById('login-info')
         const classes = ['error', 'success', 'warning'];
         loginInfo.classList.remove(...classes);
-        emailField.value = '';
-        passwordField.value = '';
         
     }
 }

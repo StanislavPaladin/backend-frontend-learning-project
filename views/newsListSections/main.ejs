@@ -3,7 +3,9 @@
 </div>
 <div class="news-wrapper">
     <div class="news-big">
-        <div class="date"><%=lastPost.date.getDate() + '/' + (lastPost.date.getMonth() + 1) + '/' + lastPost.date.getFullYear()%></div>
+        <div class="date">
+            <i class="far fa-clock"></i>
+            <%=lastPost.date.getDate() + '.' + (lastPost.date.getMonth() + 1) + '.' + lastPost.date.getFullYear()%></div>
         <div class="title"><%=lastPost.title %> </div>
         <div class="user"><%=lastPost.author%></div>
         <img src="<%=lastPost.picture%>" alt="image">
@@ -20,8 +22,8 @@
                         <p><%=item.title%></p>
                     </a>
                     <div class="date">
-                        <img src="/assets/fonts/unicons/clock.svg" alt="image">
-                        <%=item.date.getDate() + '/' + (item.date.getMonth() + 1) + '/' + item.date.getFullYear()%></div>
+                        <i class="far fa-clock"></i>
+                        <%=item.date.getDate() + '.' + (item.date.getMonth() + 1) + '.' + item.date.getFullYear()%></div>
                 </div>
             </li>
             <% }) %>

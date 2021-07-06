@@ -6,19 +6,19 @@
 
     });
 </script>
+
 <div class="breadcrumbs-layout">
     <div class="breadcrumbs-wrapper" id='breadcrumbs-wrapper'>
-        <div class="title"><%= title %>  </div>
+        <div class="title"><%= title %> </div>
         <div class="breadcrumbs">
-           
             <%if (productName !=='') { %>
-                <a><a href="/">Главная</a> / <a  href="/<%= active %>"><%= title %> </a> / <a class="active" href="#"><%= productName %></a>
+            <a><a href="/">Главная</a> / <a href="/<%= active %>"><%= title %> </a> / <a class="active"
+                    href="#"><%= productName %></a>
                 <% }
                 else { %>
-                    <a href="/">Главная</a> / <a class="active" href="#"><%= title %> </a>
-               <% }
+                <a href="/">Главная</a> / <a class="active" href="#"><%= title %> </a>
+                <% }
                 %>
-            
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 .products {
-    padding-left: 135px;
-    padding-right: 135px;
+    padding-left: 350px;
+    padding-right: 350px;
     margin-top: 100px;
     width: 100%;
     max-height: 990px;
@@ -15,7 +15,7 @@
     margin-bottom: 100px;
     padding-left: 25px;
     color: #141D28;
-    font-family: Roboto;
+    font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
     font-size: 64px;
@@ -34,8 +34,8 @@
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: #233142;
-    padding-left: 235px;
-    padding-right: 235px;
+    padding-left: 350px;
+    padding-right: 350px;
     height: 650px;
     width: 1920px;
     display: flex;
@@ -46,8 +46,10 @@
 }
 
 .products .main .product {
-    width: 30%;
+    margin-right: 5px;
+    width: 32%;
     height: 150px;
+    max-height: 150px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -55,6 +57,8 @@
 }
 
 .products .main .product .icon {
+    margin-top: -10px;
+    align-self: flex-start;
     margin-bottom: 40px;
 }
 
@@ -78,6 +82,9 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
+.products .text-wrapper a{
+    height: 100%;
+}
 
 .product .text-wrapper a:hover {
     outline: none;
@@ -90,6 +97,7 @@
     padding: 0;
     border: none;
     font-family: Montserrat;
+    font-weight: 700;
     text-align: left;
     font-style: normal;
     font-size: 20px;
@@ -106,6 +114,7 @@
 .products .text-wrapper .text {
     border: none;
     font-family: Montserrat;
+    font-weight: 500;
     font-style: normal;
     font-size: 16px;
     line-height: 24px;
@@ -113,8 +122,8 @@
 }
 
 .products-wrapper {
-    padding-left: 135px;
-    padding-right: 135px;
+    padding-left: 350px;
+    padding-right: 350px;
 }
 
 .products-wrapper .items {
@@ -144,7 +153,8 @@
 
 .products-wrapper .items .item img {
     position: relative;
-    max-height: 400px;
+    height: 250px;
+    width: 100%;
     width: 100%;
     z-index: 0;
 }
@@ -167,10 +177,14 @@
     color: #233142;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
-    font-size: 28px;
-    line-height: 34px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
     text-align: center;
+    color: #339966
+}
+.products-wrapper .items .item .title:hover{
+    color: #0AC775;
 }
 
 .products-wrapper .items .item .line {
@@ -181,12 +195,13 @@
 }
 
 .products-wrapper .items .item .text {
+    padding: 0 10px 0 10px;
     color: #233142;
-    font-family: Roboto;
+    font-family: Montserrat;
     font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
     text-align: center;
     margin-bottom: 80px;
     align-self: center;
@@ -199,21 +214,21 @@
 .post-wrapper .title {
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family: Roboto;
+    font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
-    font-size: 42px;
-    line-height: 49px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
     color: #0AC775;
 }
 
 .post-wrapper .text {
     max-width: 1090px;
-    font-family: Roboto;
-    font-size: 24px;
+    font-family: Montserrat;
+    font-weight: 400;
     font-style: normal;
-    font-weight: 500;
-    line-height: 28px;
+    font-size: 16px;
+    line-height: 30px;
     letter-spacing: 0em;
 
 }

@@ -6,8 +6,8 @@
 }
 
 .footer {
-    padding-left: 135px;
-    padding-right: 135px;
+    padding-left: 350px;
+    padding-right: 350px;
     padding-top: 80px;
     background-color: #141D28;
     display: flex;
@@ -19,12 +19,14 @@
 }
 
 .footer .sections {
+    text-transform: uppercase;
     color: #0AC775;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 4.8px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -36,6 +38,13 @@
 
 .footer .sections .links {
     font-family: 'MONTSERRAT';
+    text-transform: none;
+    letter-spacing: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    padding-top: 10px;
     padding-top: 50px;
     margin-left: -10px;
     /* необходимо для того, что-бы выровнять визуально по оси Y */
@@ -68,6 +77,8 @@
 }
 
 .footer .sections .items {
+    letter-spacing: 0;
+    text-transform: none;
     list-style: none;
     display: flex;
     flex-direction: column;

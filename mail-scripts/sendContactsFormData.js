@@ -1,3 +1,4 @@
+import nodemailer from "nodemailer";
 export default async function sendContactsFormData(data) {
     let transporter = nodemailer.createTransport({
       host: "smtp.yandex.ru",
