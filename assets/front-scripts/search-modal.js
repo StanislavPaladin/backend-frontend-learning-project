@@ -10,7 +10,7 @@ function searchModalController() {
     //работа с поисковой строкой
     getResults.addEventListener('click', async function () {
         if (!$) $ = jQuery;
-        let form = $("#login-form"); // чтобы не переопределить что-то глобальное
+        let form = $("#search-form"); // чтобы не переопределить что-то глобальное
         let formWrapper = form.parent();
         $.ajax({
             type: "POST",

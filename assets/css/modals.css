@@ -198,3 +198,128 @@
     font-size: 16px;
     font-family: Montserrat;
 }
+
+.login-info.warning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(62, 91, 136);
+    color: #fff;
+    font-size: 16px;
+    font-family: Montserrat;
+}
+
+
+
+
+.modal.registration {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 500px;
+    background-color: #fff;
+    transition: 0.4s;
+
+}
+
+.modal.registration.show {
+    display: block;
+    background-color: rgba(32, 30, 30, 0.7);
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+
+.modal .registration-form label {
+    position: fixed;
+    top: 100px;
+    left: calc(50% - 300px);
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.modal .registration-form label input {
+    margin-bottom: 20px;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding-bottom: 5px;
+}
+.modal .registration-form label input:focus{
+    border: none;
+    outline: none;
+}
+
+.modal .registration-form .title {
+    font-size: 2em;
+    background: linear-gradient(135deg, #0ac775 20%, #339966 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding: 0.3em 0.6em;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+    line-height: 46px;
+}
+
+.modal .registration-form .registration-button {
+    width: 250px;
+    height: 50px;
+    border: 1px solid #0ac775;
+    background-color: #0ac775;
+    transition: 0.5s;
+}
+.modal .registration-form .registration-button:hover{
+    background-color: #fff;
+    transition: 0.5s;
+}
+
+.registration-info {
+    z-index: 9999;
+    display: none;
+    width: 300px;
+    height: 80px;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    transition: 0.3s;
+}
+
+.registration-info.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    color: #fff;
+    font-size: 16px;
+    font-family: Montserrat;
+}
+
+.registration-info.success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+    color: #fff;
+    font-size: 16px;
+    font-family: Montserrat;
+}
+
+.registration-info.warning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(62, 91, 136);
+    color: #fff;
+    font-size: 16px;
+    font-family: Montserrat;
+}

@@ -5,6 +5,7 @@ import bcrypt from 'bcryptjs';
 import {validationResult} from 'express-validator'
 import jwt from 'jsonwebtoken';
 import secret from '../config.js'
+import welcomeMessage from '../mail-scripts/welcomeMessage.js';
 
 
 const generateAccessToken = (id, roles) => {
@@ -19,20 +20,21 @@ class authController {
     async registration(req, res) {
         try {
             const errors = validationResult(req);
-            if(!errors.isEmpty()) {
-                return res.status(400).json({message: 'Ошибка при регистрации', errors})
-            }
             const {email, password} = req.body
             const applicant = await User.findOne({email})
+            if(!errors.isEmpty()&& !applicant) {
+                console.log(errors );
+                return res.status(400).json({message: 'Ошибка при регистрации', errors})
+            }
             if (applicant) {
-                return res.status(400).json({message: "Пользователь с таким именем уже существует"})
+                return res.status(403).json({message: "Пользователь с таким именем уже существует"})
             }
             const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
             const userRole = await Role.findOne({value: "ADMIN"}) 
             const user = new User ({email: email, password: hashPassword , roles: [userRole.value]  })
             await user.save();
             console.log('register success');
-            
+            welcomeMessage(req.body)
             return res.json({message: "Регистрация прошла успешно"})
             
 
@@ -44,14 +46,18 @@ class authController {
 
     async login(req, res) {
         try {
-            const {email, password} = req.body
+            const {email, password, sessionToken} = req.body
             const user = await User.findOne({email})
+
             if (!user) {
                 return res.status(400).json({message:"Такой пользователь не найден"})
             }
             const passValidation = bcrypt.compareSync(password, user.password);
             if(!passValidation) {
                 return res.status(400).json({message:"Неверный пароль"})
+            }
+            if(user && passValidation && sessionToken) {
+                return res.status(403).json({message: "Вы уже залогинены"})
             }
             const token = generateAccessToken(user._id, user.roles);
             return res.json({token});
