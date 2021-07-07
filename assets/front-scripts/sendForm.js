@@ -1,3 +1,4 @@
+
 function getForm() {
     const formBtn = document.getElementById('form-button')
     console.log(formBtn);
@@ -19,17 +20,32 @@ function getForm() {
         request.open("POST", "/sendForm", true);
         request.setRequestHeader("Content-Type", "application/json");
         request.send(info);
-        formToSend.elements['name'].value = '';
-        formToSend.elements['email'].value = '';
-        formToSend.elements['phone'].value = '';
-        formToSend.elements['message'].value = '';
-        request.addEventListener("load", function () {
-            // получаем и парсим ответ сервера
-            let recievedInfo = JSON.parse(info);
-            console.log(recievedInfo);
-            console.log(123);
-        });
 
+        request.addEventListener("load", function () {
+            const  info = document.getElementById('login-info')
+            // получаем и парсим ответ сервера
+            if (request.status == 200) {
+                formToSend.elements['name'].value = '';
+                formToSend.elements['email'].value = '';
+                formToSend.elements['phone'].value = '';
+                formToSend.elements['message'].value = '';
+                console.log(info);
+                info.classList.add('success');
+                info.textContent = Object.values(JSON.parse(request.response));
+                setTimeout(hideInfo, 2000)
+            } else if (request.status == 400) {
+                console.log(info);
+                info.classList.add('error');
+                info.textContent = Object.values(JSON.parse(request.response));
+                setTimeout(hideInfo, 2000)
+            }
+        });
+        function hideInfo () {
+            const  info = document.getElementById('login-info')
+            const classes = ['error', 'success', 'warning'];
+            info.classList.remove(...classes);
+            
+        }
     })
 }
 

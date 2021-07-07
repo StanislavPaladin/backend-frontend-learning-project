@@ -35,6 +35,22 @@ app.use('/assets', express.static('assets')); //здесь статически�
 
 
 //обработка запросов 
+
+
+app.post('/sendForm', urlencodedParser, async function (req, res) {
+  if(req.body.name!=='' && req.body.email!=='' && req.body.phone!=='' && req.body.message!=='') {
+    sendContactsFormData(req.body);
+    return res.status(200).json({
+      message: "Форма отправлена, спасибо"
+    });
+  } else {
+    return res.status(400).json({
+      message: "Заполните форму полностью"
+    });
+  }
+
+})
+
 app.post('/search', urlencodedParser, async function (req, res) {
   const query = JSON.parse(JSON.stringify(req.body));
   const queryToString = Object.values(query).toString();
@@ -143,10 +159,6 @@ app.get('/products/:id', async function (req, res) {
   })
 })
 
-app.post('/sendForm', urlencodedParser, async function (req, res) {
-  /*   */
-  sendContactsFormData(req.body);
-})
 
 async function startApp() {
   try {

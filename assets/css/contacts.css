@@ -1,11 +1,21 @@
 .main.contacts {
+    width: 1200px;
+    height: 1000px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
 }
+.main.contacts .map iframe{
+    width: 565px;
+    margin: 10px 0 ;
+    height: 505px;
+}
 
-.main form {
+.main.contacts .contacts-form {
     width: 600px;
     height: 810px;
     align-items: center;
@@ -13,8 +23,8 @@
 
 .main .map-wrapper {
     margin-top: 100px;
-    width: 1650px;
-    height: 720px;
+    width: 100%;
+    height: 920px;
     margin-bottom: 100px;
     display: flex;
     flex-direction: row;
@@ -22,9 +32,12 @@
     justify-content: space-between;
 }
 
+.main .map-wrapper .map {
+    margin-left: 15px;
+}
 
 .main .map-wrapper .contacts {
-    height: 100%;
+    height: 505px;
     margin-left: 30px;
     display: flex;
     flex-direction: column;
@@ -46,17 +59,17 @@
 }
 
 .main .map-wrapper .contacts .item .title {
-    font-family: Roboto;
+    font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 42px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
 }
 
 .main .map-wrapper .contacts .item .text {
-    font-family: Roboto;
+    font-family: Montserrat;
     font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
 }

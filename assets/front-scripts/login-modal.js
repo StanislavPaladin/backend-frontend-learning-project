@@ -61,6 +61,7 @@ function loginModalController() {
                 localStorage.setItem('token', Object.values(res)) ;
                 loginModal.classList.remove('show')
                 setTimeout(hideInfo, 2000)
+                /* очищение полей юзернейм и пароль*/ 
                 emailField.value = '';
                 passwordField.value = '';
             }
