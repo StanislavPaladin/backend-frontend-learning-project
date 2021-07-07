@@ -1,21 +1,11 @@
-.main.contacts {
-    width: 1200px;
-    height: 1000px;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-}
-.main.contacts .map iframe{
+
+.main .map iframe{
     width: 565px;
     margin: 10px 0 ;
     height: 505px;
 }
 
-.main.contacts .contacts-form {
+.main .contacts-form {
     width: 600px;
     height: 810px;
     align-items: center;

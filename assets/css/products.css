@@ -29,7 +29,7 @@
     margin-left: 20px;
 }
 
-.products .main {
+.products .products-main {
     border: 1px solid red;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -45,7 +45,7 @@
     flex-wrap: wrap;
 }
 
-.products .main .product {
+.products .products-main .product {
     margin-right: 5px;
     width: 32%;
     height: 150px;
@@ -56,13 +56,13 @@
     flex-direction: row;
 }
 
-.products .main .product .icon {
+.products .products-main .product .icon {
     margin-top: -10px;
     align-self: flex-start;
     margin-bottom: 40px;
 }
 
-.products .main .product .icon i {
+.products .products-main .product .icon i {
     font-size: 36px;
     color: #0ac775;
     cursor: pointer;
@@ -70,7 +70,7 @@
     transition: 0.2s;
 }
 
-.products .main .product .icon i:hover {
+.products .products-main .product .icon i:hover {
     color: #fff;
 }
 

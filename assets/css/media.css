@@ -7,7 +7,7 @@
     }
 
 
-    .main.contacts{
+    .main{
         max-width: 990px !important;
         
     }
@@ -25,36 +25,46 @@
 
 
 
-    .main.contacts{
+    .main{
         max-width: 750px !important;
         height: 1500px !important;
     }
-    .main.contacts .map iframe{
+    .main .map iframe{
         width: 750px !important;
         height: 505px;
     }
-    .main.contacts .map-wrapper{
+    .main .map-wrapper{
         flex-direction: column;
         
     }
-    .main.contacts .map-wrapper .map {
+    .main .map-wrapper .map {
         margin-bottom: 15px;
     }
-    .main.contacts .map-wrapper .contacts{
+    .main .map-wrapper .contacts{
         width: 750px;
     }
-    .main.contacts .map-wrapper .contacts .item {
+    .main .map-wrapper .contacts .item {
         width: 100%;
         /* margin: 10px 0 ; */
         flex-direction: column;
         align-items: center;
     }
-    .main.contacts .map-wrapper .contacts .item .text-wrapper{
+    .main .map-wrapper .contacts .item .text-wrapper{
         text-align: center;
     }
     
-    .main.contacts .contacts-form {
+    .main .contacts-form {
         width: 750px !important;
+    }
+    .main .about-us {
+        flex-direction: column-reverse;
+    }
+    .main .about-us .text-wrapper {
+        width: 100%;
+    }
+    .main .about-us .img-wrapper {
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
 
@@ -63,37 +73,38 @@
 
 
 
-    .main.contacts{
-        max-width: 300px !important;
+    .main{
+        /* max-width: 750px !important; */
+        width: 350px !important;
     }
-    .main.contacts .map-wrapper{
+    .main .map-wrapper{
         flex-direction: column;
         
     }
-    .main.contacts .map-wrapper .map {
+    .main .map-wrapper .map {
         margin-bottom: 15px;
     }
-    .main.contacts .map iframe{
+    .main .map iframe{
         width: 350px !important;
         height: 505px;
     }
-    .main.contacts .map-wrapper .contacts{
+    .main .map-wrapper .contacts{
         width: 90%;
     }
-    .main.contacts .map-wrapper .contacts .item {
+    .main .map-wrapper .contacts .item {
         width: 100%;
         /* margin: 10px 0 ; */
         flex-direction: column;
         align-items: center;
     }
-    .main.contacts .map-wrapper .contacts .item .text-wrapper{
+    .main .map-wrapper .contacts .item .text-wrapper{
         text-align: center;
     }
     
-    .main.contacts .contacts-form {
+    .main .contacts-form {
         width: 340px !important;
     }
-    .main.contacts .contacts-form  .submit-btn {
+    .main .contacts-form  .submit-btn {
         width: 300px;
         margin-left: 15px;
     }
@@ -103,29 +114,29 @@
 
 
 
-    .main.contacts{
+    .main{
         max-width: 250px !important;
     }
-    .main.contacts .map-wrapper{
+    .main .map-wrapper{
         flex-direction: column;
     }
-    .main.contacts .map-wrapper .map {
+    .main .map-wrapper .map {
         margin-bottom: 15px;
     }
-    .main.contacts .map-wrapper .contacts{
+    .main .map-wrapper .contacts{
         width: 565px;
     }
-    .main.contacts .map-wrapper .contacts .item {
+    .main .map-wrapper .contacts .item {
         width: 100%;
         /* margin: 10px 0 ; */
         flex-direction: column;
         align-items: center;
     }
-    .main.contacts .map-wrapper .contacts .item .text-wrapper{
+    .main .map-wrapper .contacts .item .text-wrapper{
         text-align: center;
     }
     
-    .main.contacts .map-wrapper .contacts-form {
+    .main .map-wrapper .contacts-form {
         width: 340px;
     }
 }

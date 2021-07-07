@@ -33,3 +33,14 @@ body {
     width: 100vw;
     overflow: hidden;
 }
+.main {
+    width: 1200px;
+    min-height: 900px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
