@@ -35,7 +35,7 @@ function searchModalController() {
             let result = `<div class="search-result">
 <div class="img-wrapper">
     <img class="search-image"
-    src="${item.picture}" onerror="this.style.display='none'"
+    src="${item.picture}"
     />
 </div>
 <div class="link-formatted">

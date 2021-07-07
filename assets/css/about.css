@@ -16,9 +16,9 @@
     color: #141D28;
     font-family: Montserrat;
     font-style: normal;
-    font-weight: bold;
-    font-size: 64px;
-    line-height: 75px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 46px;
     text-align: center;
     letter-spacing: 0.05em;
 }
@@ -29,7 +29,7 @@
 
 .about .blocks {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     flex-direction: row;
     margin-bottom: 100px;

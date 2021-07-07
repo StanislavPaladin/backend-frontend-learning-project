@@ -135,6 +135,7 @@ app.get('/news/:id', async function (req, res) {
     alias: postsTitle
   });
   const title = post.title;
+  
   res.render('newsListSections/newsOne', {
     data: req.body,
     title: 'Новости',
