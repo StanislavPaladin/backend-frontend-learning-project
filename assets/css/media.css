@@ -27,7 +27,7 @@
 
     .main{
         max-width: 750px !important;
-        height: 1500px !important;
+        /* height: 1500px !important; */
     }
     .main .map iframe{
         width: 750px !important;
@@ -56,6 +56,23 @@
     .main .contacts-form {
         width: 750px !important;
     }
+
+
+    .main .news-wrapper {
+        flex-direction: column;
+    }
+    .main .news-wrapper .news-big{
+        width: 90% !important;
+        margin: 0;
+    }
+    .main .news-wrapper .news-list{
+        width: 100%;
+        margin: 0;
+        align-items: center;
+    }
+
+
+
     .main .about-us {
         flex-direction: column-reverse;
     }
@@ -107,6 +124,25 @@
     .main .contacts-form  .submit-btn {
         width: 300px;
         margin-left: 15px;
+    }
+
+    .news-list .items  {
+        width: 100%;
+    }
+    .news-list .items .item {
+        width: 100% !important;
+        align-items: center;
+        justify-content: start;
+    }
+    .news-list .items .item a {
+        align-self: flex-start;
+    }
+    .news-list .items .item .image {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    .news-list .items .item .text .title {
+        padding: 0;
     }
 }
 
