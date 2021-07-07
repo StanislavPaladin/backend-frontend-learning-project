@@ -25,7 +25,7 @@
 
 
 
-    .main{
+    .main, .modal.login label, .modal.registration label{
         max-width: 750px !important;
         /* height: 1500px !important; */
     }
@@ -103,7 +103,7 @@
 
 
 
-    .main{
+    .main, .modal.login label, .modal.registration label{
         /* max-width: 750px !important; */
         width: 560px !important;
     }
@@ -162,8 +162,11 @@
 
 
 
-    .main{
-        max-width: 350px !important;
+    .main, .modal.login label, .modal.registration label{
+        width: 330px !important;
+    }
+    .modal.login label, .modal.registration label {
+        left: calc(50% - 165px) !important;
     }
 
     .main .map-wrapper .map {
