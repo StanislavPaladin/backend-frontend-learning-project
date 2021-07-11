@@ -15,6 +15,7 @@
 @import "./form.css";
 @import "./loader.css";
 @import "./modals.css";
+@import "./sidenav.css";
 
 html {
     overflow-y: scroll;
