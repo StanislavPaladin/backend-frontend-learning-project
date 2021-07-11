@@ -8,6 +8,12 @@
     flex-direction: column;
 }
 
+.products-main .main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 500px;
+}
+
 .products .title {
     border-left: 5px solid #0AC775;
     margin-bottom: 100px;

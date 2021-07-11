@@ -109,17 +109,22 @@ body {
     height: 60px;
     
 }
-.header .sections .section.links .icon-wrapper.in:hover{
+.header .sections .section.links .icon-wrapper.in i, .header .sections .section.links .icon-wrapper.yt i {
+    transition: 0.3s;
+}
+.header .sections .section.links .icon-wrapper.in i:hover{
     text-decoration: none;
-   
+    color: rgb(0, 110, 255);
+   transition: 0.3s;
 }
 .header .sections .section.links .icon-wrapper.yt{
     margin-left: 20px;
-    margin-top: 5px;  /* визуально выравнивает обе svg картинки по оси x*/
-}
-.header .sections .section.links .icon-wrapper.yt:hover{
-    text-decoration: none;
     
+}
+.header .sections .section.links .icon-wrapper.yt i:hover{
+    text-decoration: none;
+    color: red;
+    transition: 0.3s;
 }
 
 
@@ -131,6 +136,11 @@ body {
 .header .sections .icon-wrapper{
     width: 20px;
     cursor:pointer;
+    display: flex;
+    flex-direction: row;
+}
+.header .sections .icon-wrapper .toggle-burger{
+    display: none;
 }
 
 .header .sections .icon-wrapper  i {

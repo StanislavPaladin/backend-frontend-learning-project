@@ -1,22 +1,22 @@
-
-
-
-
 <div class="header-wrapper">
     <div class="header absolute w-100">
+
         <div class="sections">
             <div class="section ml-1">
                 <div class="icon-wrapper">
-                    <img src="/assets/fonts/unicons/phone.svg" alt="">
+                    <i class="fas fa-phone"></i>
                 </div>
                 +7 966 191 00 08
             </div>
             <div class="section links">
                 <div class="icon-wrapper in">
-                    <a href="#"><img src="/assets/fonts/unicons/linkedin-alt.svg" alt="linkedIn"></a>
+                    <a href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
                 <div class="icon-wrapper yt">
-                    <a href="#"> <img src="/assets/fonts/unicons/youtube.svg" alt="youtube"></a>
+                    <i class="fab fa-youtube"></i>
+                </a>
                 </div>
             </div>
         </div>
@@ -24,15 +24,20 @@
     <div class="header w-100" id="menu">
         <class class="sections">
             <a class="logo" href="/"><img src="/assets/img/logo.svg" alt="logo">
-            <span class="logo-text">BT LLC.</span>
+                <span class="logo-text">BT LLC.</span>
             </a>
-            <div class="section <% if(active == 'products') {%>active<%} %> "> <a class="link" href="/products">Продукты</a> </div>
-            <div class="section <% if(active == 'news') {%>active<%} %> "> <a class="link" href="/news" id="news" >Новости</a> </div>
-            <div class="section <% if(active == 'about') {%>active<%} %> "> <a class="link" href="/about">О нас</a> </div>
-            <div class="section <% if(active == 'contacts') {%>active<%} %> "> <a class="link" href="/contacts">Контакты</a> </div>
-           
+            <div class="section <% if(active == 'products') {%>active<%} %> "> <a class="link"
+                    href="/products">Продукты</a> </div>
+            <div class="section <% if(active == 'news') {%>active<%} %> "> <a class="link" href="/news"
+                    id="news">Новости</a> </div>
+            <div class="section <% if(active == 'about') {%>active<%} %> "> <a class="link" href="/about">О нас</a>
+            </div>
+            <div class="section <% if(active == 'contacts') {%>active<%} %> "> <a class="link"
+                    href="/contacts">Контакты</a> </div>
+
             <div class="icon-wrapper">
-                    <i class="fas fa-search" id="search-modal-trigger"></i>
+                <i class="fas fa-search search-modal-trigger" id="search-modal-trigger"></i>
+                <i class="fas fa-align-justify toggle-burger" id="toggle-burger"></i>
             </div>
     </div>
 </div>

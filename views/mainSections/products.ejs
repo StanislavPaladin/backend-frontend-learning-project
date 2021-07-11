@@ -1,11 +1,13 @@
 <div class="wrapper">
-    <div class="products" >
+    <div class="products">
+
         <div class="title">
             <span class="green">Услуги</span>
             <span>Компании</span>
         </div>
-        <div class="products-main" id="products-main">
-            <% products.forEach(product => { %>
+        <div class="products-main " id="products-main">
+            <div class="main">
+                <% products.forEach(product => { %>
                 <div class="product">
                     <div class="icon">
                         <i class="<%=icon%>"></i>
@@ -16,9 +18,11 @@
                             <div class="text"><%=product.description%></div>
                         </a>
                     </div>
-                    
+
                 </div>
                 <% }) %>
+            </div>
+
         </div>
     </div>
 </div>
