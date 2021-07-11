@@ -1,4 +1,9 @@
 
+
+.main.about{
+    min-height: 500px !important;
+}
+
 .about {
     margin-top: 100px;
     width: 100%;
@@ -48,7 +53,7 @@
 
 .about .blocks .text {
     max-width: 670px;
-    max-height: 500px;
+    max-height: 1500px;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 500;

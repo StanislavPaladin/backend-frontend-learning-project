@@ -38,7 +38,7 @@ app.use('/assets', express.static('assets')); //здесь статически�
 
 
 app.post('/sendForm', urlencodedParser, async function (req, res) {
-  if(req.body.name!=='' && req.body.email!=='' && req.body.phone!=='' && req.body.message!=='') {
+  if (req.body.name !== '' && req.body.email !== '' && req.body.phone !== '' && req.body.message !== '') {
     sendContactsFormData(req.body);
     return res.status(200).json({
       message: "Форма отправлена, спасибо"
@@ -48,7 +48,6 @@ app.post('/sendForm', urlencodedParser, async function (req, res) {
       message: "Заполните форму полностью"
     });
   }
-
 })
 
 app.post('/search', urlencodedParser, async function (req, res) {
@@ -65,9 +64,7 @@ app.post('/search', urlencodedParser, async function (req, res) {
         postResults: postResults
       });
     });
-
   });
-
 });
 
 
@@ -113,6 +110,7 @@ app.get('/news', urlencodedParser, async function (req, res) {
     news: news
   });
 })
+
 app.get('/about', function (req, res) {
   res.render('aboutSections/index.ejs', {
     img: '/assets/img/test-img.jpg',
@@ -121,6 +119,7 @@ app.get('/about', function (req, res) {
     productName: ''
   });
 })
+
 app.get('/contacts', function (req, res) {
   res.render('contactsSections/index.ejs', {
     img: '/assets/img/test-img.jpg',
@@ -131,33 +130,51 @@ app.get('/contacts', function (req, res) {
 })
 app.get('/news/:id', async function (req, res) {
   const postsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
-  const post = await Post.findOne({
-    alias: postsTitle
-  });
-  const title = post.title;
-  
-  res.render('newsListSections/newsOne', {
-    data: req.body,
-    title: 'Новости',
-    active: 'news',
-    img: '/assets/img/test-img.jpg',
-    post: post,
-    productName: title
-  });
+  try {
+    const post = await Post.findOne({
+      alias: postsTitle
+    });
+    if (post) {
+      const title = post.title;
+      res.render('newsListSections/newsOne', {
+        data: req.body,
+        title: 'Новости',
+        active: 'news',
+        img: '/assets/img/test-img.jpg',
+        post: post,
+        productName: title
+      });
+    }
+
+  } catch (e) {
+    console.log('error', e);
+  }
+
 })
+
+
 app.get('/products/:id', async function (req, res) {
-  const productsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
-  const product = await Product.findOne({
-    alias: productsTitle
-  });
-  const title = product.title;
-  res.render('productsSections/productOne.ejs', {
-    img: '/assets/img/test-img.jpg',
-    title: 'Продукты',
-    active: 'products',
-    product: product,
-    productName: title
-  })
+  try {
+    const productsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
+
+    const product = await Product.findOne({
+      alias: productsTitle
+    });
+
+    if (product) {
+      const title = product.title;
+      res.render('productsSections/productOne.ejs', {
+        img: '/assets/img/test-img.jpg',
+        title: 'Продукты',
+        active: 'products',
+        product: product,
+        productName: title
+      })
+    }
+  } catch (e) {
+    console.log('error', e);
+  }
+
 })
 
 
@@ -167,7 +184,7 @@ async function startApp() {
       useUnifiedTopology: true,
       useNewUrlParser: true
     })
-    app.listen(PORT, () => console.log('Server startet at port: ' + PORT))
+    app.listen(PORT, () => console.log('Server started at port: ' + PORT))
   } catch (e) {
     console.log(e);
   }

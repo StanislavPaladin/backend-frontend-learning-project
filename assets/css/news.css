@@ -29,6 +29,8 @@
     margin-bottom: 30px;
 }
 
+
+
 .news-big .date {
     font-family: Montserrat;
     font-style: normal;
@@ -100,6 +102,7 @@
     height: 20px;
 }
 
+
 .news-list .title {
     font-family: Montserrat;
     padding-bottom: 50px;
@@ -133,6 +136,13 @@
     cursor: pointer;
     width: 250px;
     height: 250px;
+    transition: 0.3s;
+}
+
+.news-list .items .item .image:hover {
+    opacity: .5;
+    background-color: rgba(0, 0, 0, .5);
+    transition: 0.3s;
 }
 
 .news-list .items .item .text {
@@ -194,6 +204,8 @@
 }
 
 .news {
+    margin-left: 20px;
+    width: 100%;
     margin: 100px 0 100px 0;
     display: flex;
     flex-direction: column;
@@ -215,6 +227,8 @@
 }
 
 .news .items {
+    margin-left: 20px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -227,7 +241,6 @@
     align-items: center;
     justify-content: space-between;
     margin-right: 20px;
-    margin-bottom: 70px;
     cursor: pointer;
 }
 
@@ -243,14 +256,20 @@
     max-width: 530px;
     max-height: 400px;
     margin-bottom: 30px;
+    transition: 0.3s;
+}
+.news .items .item .image img:hover{
+    opacity: .5;
+    background-color: rgba(0, 0, 0, .8);
+    transition: 0.3s;
 }
 
 .news .items .item a .title {
     font-family: Montserrat;
     font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 30px;
     text-align: center;
     color: #233142;
     border: none;

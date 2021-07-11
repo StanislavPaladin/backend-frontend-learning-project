@@ -1,224 +1,394 @@
 @media(max-width: 1440px) {
-    .header .sections .section{
+
+    /*header*/
+    .header .sections .section {
         display: none !important;
     }
+
     .header-wrapper .header.absolute .sections .section {
         display: flex !important;
     }
 
+    /*main - основные контейнеры, в которые помещается контент*/
+    .main {
+        max-width: 970px !important;
 
-    .main{
-        max-width: 990px !important;
-        
+    }
+
+    /*основная страница - блок новости*/
+    .news .items .item .image img {
+        max-width: 300px !important;
+        max-height: 300px !important;
     }
 }
 
 
+
+
 @media(max-width: 990px) {
 
-    .header-wrapper .header.absolute .sections  {
+
+    /*footer*/
+    .footer .main{
+        flex-direction: column !important;
+        max-height: 1200px !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        padding-left: 150px;
+    }
+    .footer .sections {
+        margin-bottom: 30px !important;
+    }
+
+    /*header*/
+    .header-wrapper .header.absolute .sections {
+        
         flex-direction: column;
-    }
-    .header.absolute{
-        height: 80px !important;
+        margin-bottom: 30px !important;
     }
 
+    .header.absolute {
+        height: 60px !important;
+    }
 
 
-    .main, .modal.login label, .modal.registration label{
+    /*modals*/
+    .main,
+    .modal.login label,
+    .modal.registration label {
         max-width: 750px !important;
         /* height: 1500px !important; */
     }
-    .main .map iframe{
+
+    /*contacts*/
+    .main .map iframe {
         width: 750px !important;
         height: 505px;
     }
-    .main .map-wrapper{
+
+    .main .map-wrapper {
         flex-direction: column;
-        
     }
+
     .main .map-wrapper .map {
         margin-bottom: 15px;
     }
-    .main .map-wrapper .contacts{
+
+    .main .map-wrapper .contacts {
         width: 750px;
     }
+
     .main .map-wrapper .contacts .item {
         width: 100%;
         /* margin: 10px 0 ; */
         flex-direction: column;
         align-items: center;
     }
-    .main .map-wrapper .contacts .item .text-wrapper{
+
+    .main .map-wrapper .contacts .item .text-wrapper {
         text-align: center;
     }
+
     .main .map-wrapper .contacts .item {
         width: 100%;
         flex-direction: column !important;
         align-items: center !important;
     }
-    .main .map-wrapper .contacts .item .text-wrapper{
+
+    .main .map-wrapper .contacts .item .text-wrapper {
         text-align: center;
     }
-    
+
     .main .contacts-form {
         width: 750px !important;
     }
 
-
+    /*news*/
     .main .news-wrapper {
         flex-direction: column;
     }
-    .main .news-wrapper .news-big{
+
+    .main .news-wrapper .news-big {
         width: 90% !important;
         margin: 0;
     }
-    .main .news-wrapper .news-list{
+
+    .main .news-wrapper .news-list {
         width: 100%;
         margin: 0;
         align-items: center;
     }
 
-
+    /*about-us*/
+    .about {
+        max-height: 2500px !important;
+    }
 
     .main .about-us {
         flex-direction: column-reverse;
     }
+
     .main .about-us .text-wrapper {
         width: 100%;
     }
+
     .main .about-us .img-wrapper {
         width: 100%;
         margin-bottom: 20px;
     }
 
-
+    /*products*/
     .main .products-wrapper .items .item {
         width: 48%;
+    }
+
+    /*основная страница - секция о нас*/
+    .main .about .blocks {
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .main .about .blocks .image-wrapper {
+        width: 90%;
+        margin: auto;
+    }
+
+    /*основная страница - секция продукты*/
+    .products-main .product {
+        width: 48% !important;
+    }
+
+    /*основная страница - секция новости*/
+    .news .items {
+        flex-direction: column !important;
+    }
+
+    .news .items .item {
+        width: 100%;
+        align-items: center;
+    }
+
+    .news .items .item a {
+        width: 100%;
+    }
+
+    .news .items .item a .image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .news .items .item a .image img {
+        max-width: 500px !important;
+        max-height: 500px !important;
     }
 }
 
 
+
 @media(max-width: 768px) {
 
+    /* slider*/
+    .swiper-wrapper .info {
+        max-height: 150px;
+    }
 
+    .swiper-container .swiper-slide::before,
+    .swiper-slide,
+    .slide {
+        height: 500px;
+    }
 
-    .main, .modal.login label, .modal.registration label{
+    /* modals */
+    .main,
+    .modal.login label,
+    .modal.registration label {
         /* max-width: 750px !important; */
         width: 560px !important;
     }
-    .main .map-wrapper{
+
+    /*contacts*/
+    .main .map-wrapper {
         flex-direction: column !important;
-        
+
     }
-    
+
     .main .map-wrapper .map {
         margin-bottom: 15px;
     }
-    .main .map iframe{
+
+    .main .map iframe {
         width: 500px !important;
         height: 505px;
     }
-    .main .map-wrapper .contacts{
+
+    .main .map-wrapper .contacts {
         width: 90%;
     }
-    
-    
+
     .main .contacts-form {
         width: 340px !important;
     }
-    .main .contacts-form  .submit-btn {
+
+    .main .contacts-form .submit-btn {
         width: 300px;
         margin-left: 15px;
     }
 
-    .news-list .items  {
+    /*news*/
+    .news-list .items {
         width: 100%;
     }
+
     .news-list .items .item {
         width: 100% !important;
         align-items: center;
         justify-content: start;
     }
+
     .news-list .items .item a {
         align-self: flex-start;
     }
+
     .news-list .items .item .image {
         width: 150px !important;
         height: 150px !important;
     }
+
     .news-list .items .item .text .title {
         padding: 0;
     }
 
 
+    /*products*/
     .main .products-wrapper .items .item {
         width: 85%;
     }
 
+    /*основная страница - секция новости*/
+    .news .items .item a .image img {
+        max-width: 400px !important;
+        max-height: 400px !important;
+    }
 }
+
+
 
 @media(max-width: 576px) {
 
+        /*footer*/
+        .footer .main{
+            flex-direction: column !important;
+            max-height: 1200px !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            padding-left: 50px;
+        }
+
+    /*slider */
+    .info {
+        left: 0 !important;
+        width: 50% !important;
+        text-align: center !important;
+    }
+
+    .info .title,
+    .title-green {
+        font-weight: 500 !important;
+        font-size: 32px !important;
+        line-height: 32px !important;
+    }
+
+    .info .text {
+        font-weight: 400 !important;
+        font-size: 18px !important;
+        line-height: 18px !important;
+    }
 
 
-    .main, .modal.login label, .modal.registration label{
+    /*modal*/
+    .main,
+    .modal.login label,
+    .modal.registration label {
         width: 330px !important;
     }
-    .modal.login label, .modal.registration label {
+
+    .modal.login label,
+    .modal.registration label {
         left: calc(50% - 165px) !important;
     }
 
+    /*contacts */
     .main .map-wrapper .map {
         margin-bottom: 15px;
     }
-    .main .map-wrapper .contacts{
+
+    .main .map-wrapper .contacts {
         width: 565px;
     }
+
     .main .map-wrapper .contacts .item {
         width: 100%;
         /* margin: 10px 0 ; */
         flex-direction: column;
         align-items: center;
     }
-    .main .map-wrapper .contacts .item .text-wrapper{
+
+    .main .map-wrapper .contacts .item .text-wrapper {
         text-align: center;
     }
-    
+
     .main .map-wrapper .contacts-form {
         width: 340px;
     }
 
-
-    .main .map-wrapper{
+    .main .map-wrapper {
         flex-direction: column !important;
-        
+
     }
-    
+
     .main .map-wrapper .map {
         margin-bottom: 15px;
     }
-    .main .map iframe{
+
+    .main .map iframe {
         width: 300px !important;
         height: 505px;
     }
-    .main .map-wrapper .contacts{
+
+    .main .map-wrapper .contacts {
         width: 90%;
     }
+
     .main .map-wrapper .contacts .item {
         width: 100%;
         flex-direction: column !important;
         align-items: center !important;
     }
-    .main .map-wrapper .contacts .item .text-wrapper{
+
+    .main .map-wrapper .contacts .item .text-wrapper {
         text-align: center;
     }
-    
+
     .main .contacts-form {
         width: 300px !important;
     }
-    .main .contacts-form  .submit-btn {
+
+    .main .contacts-form .submit-btn {
         width: 250px;
         margin-left: 15px;
+    }
+
+    /*основная страница - секция продукты*/
+    .products-main .product {
+        width: 88% !important;
+    }
+
+    /*основная страница - секция новости*/
+    .news .items .item a .image img {
+        max-width: 300px !important;
+        max-height: 300px !important;
     }
 }
