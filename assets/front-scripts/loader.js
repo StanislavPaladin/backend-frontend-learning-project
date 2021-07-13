@@ -1,8 +1,6 @@
 const loader = document.querySelector('.loader')
 console.log(loader);
 
-
-let counter = 0;
 let opacity = 1;
 
 function loaderController() {
@@ -12,8 +10,7 @@ function loaderController() {
             clearInterval(timer);
         } 
         else {
-            counter += counter;
-            opacity = opacity - 0.02;
+            opacity = opacity - 0.035;
             loader.style.opacity = opacity;
         }
     }, 20); 

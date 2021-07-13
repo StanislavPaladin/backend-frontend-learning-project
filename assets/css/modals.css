@@ -74,6 +74,9 @@
     display: flex;
     margin-bottom: 5px;
 }
+.modal .search-block .results .search-result .img-wrapper{
+    height: 30px; /* размер обёртки ставлю такой же, как и  размер картинки, потому что иначе не получается выровнять текст по центру картинки*/
+}
 
 .modal .search-block .results .search-image {
     width: 30px;
