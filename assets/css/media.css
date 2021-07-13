@@ -112,6 +112,7 @@
 
     .main .map-wrapper {
         flex-direction: column;
+        margin-bottom: 50px;
     }
 
     .main .map-wrapper .map {

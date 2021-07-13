@@ -156,7 +156,7 @@ app.get('/products/:id', async function (req, res) {
 
 app.post('/sendForm', urlencodedParser, async function (req, res) {
   if (req.body.name !== '' && req.body.email !== '' && req.body.phone !== '' && req.body.message !== '') {
-    sendContactsFormData(req.body);
+    await sendContactsFormData(req.body);
     return res.status(200).json({
       message: "Форма отправлена, спасибо"
     });

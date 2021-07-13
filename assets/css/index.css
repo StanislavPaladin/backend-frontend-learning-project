@@ -47,3 +47,12 @@ body {
     flex-direction: column;
     transition: 0.3s;
 }
+
+img {
+    object-fit: scale-down;
+}
+
+/*для фоновых изображений внутри слайдера object-fit не годится*/
+.swiper-container img {
+    object-fit: none;
+}

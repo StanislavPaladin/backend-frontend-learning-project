@@ -45,6 +45,14 @@
     border: none;
 }
 
+.input-grp .message {
+    /* height: auto; */
+    height: 145px;
+    background-image: linear-gradient(transparent, transparent 46px, rgba(20, 29, 40, .1) 30px, rgba(20, 29, 40, .1) 47px, transparent 31px) !important;
+    background-size: 100% 50px;
+    line-height: 50px;
+}
+
 .modal .search-block .search-form label .search-button {
     color: #0ac775;
     width: 50px;
@@ -74,8 +82,10 @@
     display: flex;
     margin-bottom: 5px;
 }
-.modal .search-block .results .search-result .img-wrapper{
-    height: 30px; /* размер обёртки ставлю такой же, как и  размер картинки, потому что иначе не получается выровнять текст по центру картинки*/
+
+.modal .search-block .results .search-result .img-wrapper {
+    height: 30px;
+    /* размер обёртки ставлю такой же, как и  размер картинки, потому что иначе не получается выровнять текст по центру картинки*/
 }
 
 .modal .search-block .results .search-image {
