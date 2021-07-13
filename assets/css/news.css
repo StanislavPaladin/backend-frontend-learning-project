@@ -1,4 +1,5 @@
 .news-wrapper {
+    margin-right: 12px;
     margin-top: 50px;
     width: 100%;
     display: flex;
@@ -204,9 +205,10 @@
 }
 
 .news {
+    margin-right: 12px !important;
     margin-left: 20px;
     width: 100%;
-    margin: 100px 0 100px 0;
+    margin: 50px 0 50px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -214,7 +216,7 @@
 }
 
 .news .title {
-    margin-bottom: 110px;
+    margin-bottom: 60px;
 }
 
 .news .title .green {
@@ -227,7 +229,7 @@
 }
 
 .news .items {
-    margin-left: 20px;
+    /* margin-left: 20px; */
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -277,13 +279,17 @@
 }
 
 .news .items .item a .date {
+    text-align: center;
+    color: #233142;
+    margin-left: 10px;
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    text-align: center;
-    color: #233142;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    align-self: center;
 }
 
 .news .button {
@@ -326,4 +332,15 @@
     margin-top: 30px;
     margin-bottom: 30px;
     font-weight: bold;
+}
+
+.flex {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex i {
+    color: #0AC775;
+    font-size: 20px;
 }

@@ -30,6 +30,7 @@
     "view.js": "^4.1.0"
   },
   "devDependencies": {
+    "@pnotify/font-awesome4": "^5.2.0",
     "nodemon": "^2.0.7"
   }
 }

@@ -62,11 +62,17 @@
     font-size: 20px;
 }
 
+.modal .search-block .results {
+    padding-bottom: 10px;
+}
+
 .modal .search-block .results .search-result {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: start;
     margin-left: 10px;
+    display: flex;
+    margin-bottom: 5px;
 }
 
 .modal .search-block .results .search-image {
@@ -84,6 +90,8 @@
     line-height: 16px;
     color: black;
     letter-spacing: 0.02em;
+    align-self: center;
+    margin: 0;
 }
 
 .modal .search-block .results a {
@@ -138,7 +146,8 @@
     border-bottom: 1px solid gray;
     padding-bottom: 5px;
 }
-.modal .login-form label input:focus{
+
+.modal .login-form label input:focus {
     border: none;
     outline: none;
 }
@@ -163,7 +172,8 @@
     background-color: #0ac775;
     transition: 0.5s;
 }
-.modal .login-form .login-button:hover{
+
+.modal .login-form .login-button:hover {
     background-color: #fff;
     transition: 0.5s;
 }
@@ -172,31 +182,38 @@
     z-index: 9999;
     display: none;
     width: 300px;
-    height: 80px;
+    min-height: 60px;
+    max-height: 80px;
     position: fixed;
     top: 30px;
     right: 30px;
     transition: 0.3s;
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    transition: 0.3;
 }
 
 .login-info.error {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: red;
-    color: #fff;
-    font-size: 16px;
-    font-family: Montserrat;
+    background: linear-gradient(135deg, #ffaba2 25%, #ffc4be 0, #ffc4be 50%, #ffaba2 0, #ffaba2 75%, #ffc4be 0);
+    background-size: 130px 130px;
+    color: #500900;
+    transition: 0.3;
+
 }
 
 .login-info.success {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: green;
-    color: #fff;
-    font-size: 16px;
-    font-family: Montserrat;
+    background-color: #aff29a;
+    color: #104100;
+
+    transition: 0.3;
 }
 
 .login-info.warning {
@@ -205,8 +222,7 @@
     justify-content: center;
     background-color: rgb(62, 91, 136);
     color: #fff;
-    font-size: 16px;
-    font-family: Montserrat;
+    transition: 0.3;
 }
 
 
@@ -253,7 +269,8 @@
     border-bottom: 1px solid gray;
     padding-bottom: 5px;
 }
-.modal .registration-form label input:focus{
+
+.modal .registration-form label input:focus {
     border: none;
     outline: none;
 }
@@ -278,7 +295,8 @@
     background-color: #0ac775;
     transition: 0.5s;
 }
-.modal .registration-form .registration-button:hover{
+
+.modal .registration-form .registration-button:hover {
     background-color: #fff;
     transition: 0.5s;
 }
@@ -298,8 +316,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: red;
-    color: #fff;
+    background: linear-gradient(135deg, #ffaba2 25%, #ffc4be 0, #ffc4be 50%, #ffaba2 0, #ffaba2 75%, #ffc4be 0);
+    color: #500900;
     font-size: 16px;
     font-family: Montserrat;
 }
@@ -308,8 +326,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: green;
-    color: #fff;
+    background-color: #aff29a;
+    color: #104100;
     font-size: 16px;
     font-family: Montserrat;
 }

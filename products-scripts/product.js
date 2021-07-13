@@ -5,9 +5,11 @@ const Product = new mongoose.Schema({
     alias: {type: String},
     description: {type: String},
     icon: {type: String},
-    date: {type: Date},
+    createdAt:{type: Date},
+    updatedAt:{type: Date},
     content: {type: String},
     picture: {type: String},
+    headerImage: {type: String},
 })
 
 export default mongoose.model("Product", Product)

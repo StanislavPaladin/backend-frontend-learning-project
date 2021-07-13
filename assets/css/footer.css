@@ -21,12 +21,13 @@
     justify-content: space-between;
     flex-direction: row;
     width: 100%;
-    min-height: 550px;
+   
 }
 .footer .main {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    min-height: 420px;
 }
 
 .footer .sections {
@@ -100,6 +101,10 @@
 .footer .items .item {
     display: flex;
     flex-direction: row;
+}
+.footer .items .item a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .footer .items .item .wrapper {

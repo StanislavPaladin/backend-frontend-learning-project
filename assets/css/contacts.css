@@ -1,6 +1,10 @@
+.main.contacts{
+    max-height: 1000px ;
+}
 
 .main .map iframe{
-    width: 565px;
+    /* width: 565px; */
+    width: 100% !important;
     margin: 10px 0 ;
     height: 505px;
 }
@@ -12,6 +16,7 @@
 }
 
 .main .map-wrapper {
+    margin-right: 25px;
     margin-top: 100px;
     width: 100%;
     height: 920px;
@@ -23,7 +28,8 @@
 }
 
 .main .map-wrapper .map {
-    margin-left: 15px;
+    width: 100%;
+    /* margin-left: 15px; */
 }
 
 .main .map-wrapper .contacts {

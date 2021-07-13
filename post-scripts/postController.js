@@ -6,18 +6,29 @@ import * as path from 'path';
 
 class PostController {
     async create(req, res) {
-        const filename = uuid.v4() + req.files.picture.data.format;
+        
+        const filename = uuid.v4() + '.jpg';
+        const headerImage = uuid.v4() + '.jpg';
         const filepath = path.resolve('static', filename);
+        const headerImgPath = path.resolve('static', headerImage);
         try {
             sharp(req.files.picture.data)
                 .resize({
-                    width: 1100,    
-                    height: 1100  //настройка sharp. пока поставил просто рандомные значения для теста функционала
+                    width: 900,    
+                    height: 900  //настройка sharp. пока поставил просто рандомные значения для теста функционала
                 })
                 .toFile(filepath)
+                
+                sharp(req.files.headerImage.data)
+                .resize({
+                    width: 1800,    
+                    height: 600  //настройка sharp. пока поставил просто рандомные значения для теста функционала
+                })
+                .toFile(headerImgPath)
                 .then(async data => {
+                    
                     console.log("data: ", data);
-                    const post = await PostService.create(req.body, filename) //создание поста на основе schema, с использованием полученных в запросе данных
+                    const post = await PostService.create(req.body, filename, headerImage) //создание поста на основе schema, с использованием полученных в запросе данных
                     res.json(post)
                 }).catch(err => {
                     console.log("err: ", err);

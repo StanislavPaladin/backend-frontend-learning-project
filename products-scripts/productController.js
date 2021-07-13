@@ -7,7 +7,7 @@ class ProductController {
     async create(req, res) {
         try {
             console.log(req.files);
-            const post = await ProductService.create(req.body, req.files.picture) //создание поста на основе schema, с использованием полученных в запросе данных
+            const post = await ProductService.create(req.body, req.files.picture, req.files.headerImage) //создание поста на основе schema, с использованием полученных в запросе данных
             res.json(post)
         } catch (e) {
             res.status(500).json(e.message)

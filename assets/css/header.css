@@ -9,8 +9,8 @@ body {
 
 .header {
     z-index: 3;
-    padding-left: 350px;
-    padding-right: 350px;
+    /* padding-left: 350px;
+    padding-right: 350px; */
     position: fixed;
     /* top: 40px; */
     background-color: #141D28;
@@ -20,13 +20,13 @@ body {
     width: 95%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    transition: 0.3s;
+    justify-content: center;
+    transition: 0.5s;
 }
 
 .header.scrolling{
-    padding-left: 350px;
-    padding-right: 350px;
+    /* padding-left: 350px;
+    padding-right: 350px; */
     position: fixed;
     background-color: #141D28;
     top: 0;
@@ -36,8 +36,8 @@ body {
     width: 95%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    transition: 0.3s;
+    justify-content: center;
+    transition: 0.5s;
 }
 
 .header.absolute {
@@ -45,9 +45,12 @@ body {
     height: 40px;
     left: 0;
     top: 0;
+    transition: 0.5s;
 }
 
 .header .sections {
+    max-width: 1200px;
+    margin-right: 12px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -108,6 +111,10 @@ body {
     width: 60px;
     height: 60px;
     
+}
+.header .tel-wrapper{
+    text-decoration: none;
+    color: inherit;
 }
 .header .sections .section.links .icon-wrapper.in i, .header .sections .section.links .icon-wrapper.yt i {
     transition: 0.3s;

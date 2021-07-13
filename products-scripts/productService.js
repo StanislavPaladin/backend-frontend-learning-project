@@ -6,17 +6,19 @@ import  { transliterate, slugify } from "transliteration";
 
 
 class ProductService {
-    async create(post, picture) {
+    async create(post, picture, headerImage) {
         let titleTranslit = slugify(post.title, {
             separator: '_',
             unknown: '-'
           })
         const filename = fileService.saveFile(picture)
+        const headerImg = fileService.saveFile(headerImage)
         const createdPost = await Product.create({
             ...post,
             alias: titleTranslit,
-            date: new Date(),
+            createdAt: new Date(),
             picture: filename,
+            headerImage: headerImg,
 
         })
         console.log('пост создан');

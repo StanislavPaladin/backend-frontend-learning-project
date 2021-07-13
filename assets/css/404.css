@@ -1,0 +1,37 @@
+.not-found-wrapper {
+    
+    background-image: url('../img/404.jpg');
+    
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat;
+    color: #0aaf58;
+}
+.not-found-wrapper .not-found {
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 58px;
+}
+.not-found-wrapper .title, .not-found-wrapper .description{
+    font-weight: 500;
+    font-size: 16;
+    line-height: 30px;
+}
+
+.not-found-wrapper .title-green {
+    font-weight: 500;
+    font-size: 16;
+    line-height: 30px;
+    
+}
+.not-found-wrapper a {
+    color: blue !important;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    font-size: 25px;
+    /* line-height: 40; */
+}

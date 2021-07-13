@@ -1,4 +1,4 @@
-document.getElementById("mySidenav").style.width = "0";
+
 
 /* прилипающее меню */
 window.onscroll = function () {

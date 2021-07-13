@@ -7,7 +7,10 @@ const Post = new mongoose.Schema({
     description: {type: String},
     content: {type: String, required: true},
     picture:{type: String},
+    headerImage:{type: String},
     date:{type: Date},
+    createdAt:{type: Date},
+    updatedAt:{type: Date}
 
 })
 

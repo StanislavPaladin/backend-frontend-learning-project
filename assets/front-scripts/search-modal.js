@@ -4,11 +4,11 @@ function searchModalController() {
     const searchModal = document.querySelector('#search-modal');
     const body = document.querySelector('body');
     let input = document.querySelector('.search-input');
-    let getResults = document.querySelector('#get-search-results');
-    console.log(getResults);
+    let searchForm = document.getElementById('search-form');
 
     //работа с поисковой строкой
-    getResults.addEventListener('click', async function () {
+    searchForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
         if (!$) $ = jQuery;
         let form = $("#search-form"); // чтобы не переопределить что-то глобальное
         let formWrapper = form.parent();
@@ -16,7 +16,9 @@ function searchModalController() {
             type: "POST",
             dataType: "text",
             url: ('/search'),
-            data: {'title' : input.value},
+            data: {
+                'title': input.value
+            },
             success(response) {
                 let result = JSON.parse(response);
                 let productsHtmls = result.results.map((item) => makeSearchResult(item, 'products'));
@@ -27,8 +29,8 @@ function searchModalController() {
                     .append(...productsHtmls, ...postsHtmls);
             },
             error() {
-      console.log('error');
-    },
+                console.log('error');
+            },
         });
 
         function makeSearchResult(item, category) {

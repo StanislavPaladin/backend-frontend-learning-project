@@ -37,6 +37,123 @@ app.use('/assets', express.static('assets')); //здесь статически�
 //обработка запросов 
 
 
+
+
+
+app.get('/', async function (req, res) {
+  const products = await Product.find();
+  const news = await Post.find().sort({
+    date: -1
+  }).limit(3);
+  res.render('mainSections/index.ejs', {
+    data: '/assets/img/test-img.jpg',
+    active: '',
+    news: news,
+    products: products,
+    icon: 'fas fa-user',
+    results: ''
+  });
+})
+
+app.get('/products', async function (req, res) {
+  const products = await Product.find();
+  res.render('productsSections/index.ejs', {
+    headerImage: '/assets/img/test-img.jpg',
+    title: 'Продукты',
+    active: 'products',
+    products: products,
+    productName: ''
+  });
+})
+
+app.get('/news', urlencodedParser, async function (req, res) {
+  const lastPost = await Post.find().sort({
+    date: -1
+  }).limit(1);
+  const news = await Post.find().sort({
+    date: -1
+  }).limit(3);
+  res.render('newsListSections/index.ejs', {
+    title: 'Новости',
+    active: 'news',
+    headerImage:'/assets/img/test-img.jpg',
+    productName: '',
+    lastPost: lastPost[0],
+    news: news
+  });
+})
+
+app.get('/about', function (req, res) {
+  res.render('aboutSections/index.ejs', {
+    headerImage: '/assets/img/test-img.jpg',
+    title: 'О нас',
+    active: 'about',
+    productName: ''
+  });
+})
+
+app.get('/contacts', function (req, res) {
+  res.render('contactsSections/index.ejs', {
+    headerImage: '/assets/img/test-img.jpg',
+    title: 'Контакты',
+    active: 'contacts',
+    productName: ''
+  });
+})
+app.get('/news/:id', async function (req, res) {
+  const postsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
+  try {
+    const post = await Post.findOne({
+      alias: postsTitle
+    });
+    if (post) {
+      const title = post.title;
+      const headerImage = post.headerImage
+      console.log(headerImage);
+      res.render('newsListSections/newsOne', {
+        data: req.body,
+        title: 'Новости',
+        active: 'news',
+        headerImage: '../'+headerImage || '/assets/img/test-img.jpg',
+        post: post,
+        productName: title
+      });
+    }
+
+  } catch (e) {
+    console.log('error', e);
+  }
+
+})
+
+
+app.get('/products/:id', async function (req, res) {
+  try {
+    const productsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
+
+    const product = await Product.findOne({
+      alias: productsTitle
+    });
+
+    if (product) {
+      const title = product.title;
+      const headerImage = product.headerImage
+      res.render('productsSections/productOne.ejs', {
+        headerImage: '../'+headerImage || '/assets/img/test-img.jpg',
+        title: 'Продукты',
+        active: 'products',
+        product: product,
+        productName: title
+      })
+    }
+  } catch (e) {
+    console.log('error', e);
+  }
+
+})
+
+
+
 app.post('/sendForm', urlencodedParser, async function (req, res) {
   if (req.body.name !== '' && req.body.email !== '' && req.body.phone !== '' && req.body.message !== '') {
     sendContactsFormData(req.body);
@@ -68,114 +185,13 @@ app.post('/search', urlencodedParser, async function (req, res) {
 });
 
 
-app.get('/', async function (req, res) {
-  const products = await Product.find();
-  const news = await Post.find().sort({
-    date: -1
-  }).limit(3);
-  res.render('mainSections/index.ejs', {
-    data: '/assets/img/test-img.jpg',
-    active: '',
-    news: news,
-    products: products,
-    icon: 'fas fa-user',
-    results: ''
+//обработка несуществующего запроса
+app.get('*', function(req, res){
+  res.status(404);
+  res.render('404/index.ejs', {
+  title: '404'
   });
-})
-
-app.get('/products', async function (req, res) {
-  const products = await Product.find();
-  res.render('productsSections/index.ejs', {
-    img: '/assets/img/test-img.jpg',
-    title: 'Продукты',
-    active: 'products',
-    products: products,
-    productName: ''
   });
-})
-
-app.get('/news', urlencodedParser, async function (req, res) {
-  const lastPost = await Post.find().sort({
-    date: -1
-  }).limit(1);
-  const news = await Post.find().sort({
-    date: -1
-  }).limit(3);
-  res.render('newsListSections/index.ejs', {
-    title: 'Новости',
-    active: 'news',
-    img: '/assets/img/test-img.jpg',
-    productName: '',
-    lastPost: lastPost[0],
-    news: news
-  });
-})
-
-app.get('/about', function (req, res) {
-  res.render('aboutSections/index.ejs', {
-    img: '/assets/img/test-img.jpg',
-    title: 'О нас',
-    active: 'about',
-    productName: ''
-  });
-})
-
-app.get('/contacts', function (req, res) {
-  res.render('contactsSections/index.ejs', {
-    img: '/assets/img/test-img.jpg',
-    title: 'Контакты',
-    active: 'contacts',
-    productName: ''
-  });
-})
-app.get('/news/:id', async function (req, res) {
-  const postsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
-  try {
-    const post = await Post.findOne({
-      alias: postsTitle
-    });
-    if (post) {
-      const title = post.title;
-      res.render('newsListSections/newsOne', {
-        data: req.body,
-        title: 'Новости',
-        active: 'news',
-        img: '/assets/img/test-img.jpg',
-        post: post,
-        productName: title
-      });
-    }
-
-  } catch (e) {
-    console.log('error', e);
-  }
-
-})
-
-
-app.get('/products/:id', async function (req, res) {
-  try {
-    const productsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
-
-    const product = await Product.findOne({
-      alias: productsTitle
-    });
-
-    if (product) {
-      const title = product.title;
-      res.render('productsSections/productOne.ejs', {
-        img: '/assets/img/test-img.jpg',
-        title: 'Продукты',
-        active: 'products',
-        product: product,
-        productName: title
-      })
-    }
-  } catch (e) {
-    console.log('error', e);
-  }
-
-})
 
 
 async function startApp() {
