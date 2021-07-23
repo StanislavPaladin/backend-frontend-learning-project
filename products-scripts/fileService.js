@@ -6,9 +6,9 @@ import sharp from 'sharp'
 class FileService {
     saveFile(file) {
         try {
-            const filename = uuid.v4() + '.png';
+            const filename = uuid.v4() + '.jpg';
             const filepath = path.resolve('static', filename);
-            file.mv(filepath);
+            file[0].mv(filepath);
             return filename;
         } catch (e) {
             console.log('ERROR', e);

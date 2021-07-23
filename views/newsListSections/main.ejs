@@ -3,28 +3,38 @@
     <div class="news-big">
         <div class="date">
             <i class="far fa-clock"></i>
-            <%=lastPost.date.getDate() + '.' + (lastPost.date.getMonth() + 1) + '.' + lastPost.date.getFullYear()%></div>
+            <%=lastPost.createdAt.getDate() + '.' + (lastPost.createdAt.getMonth() + 1) + '.' + lastPost.createdAt.getFullYear()%></div>
         <div class="title"><%=lastPost.title %> </div>
         <div class="user"><%=lastPost.author%></div>
+        <a href="/news-edit/<%=lastPost.alias%>">
+            <button class="admin-edit-btn">Редактировать</button>
+            <a href="/news"><button class="admin-delete-btn">Удалить</button></a>
+        </a>
         <img src="<%=lastPost.picture%>" alt="image">
-        <div class="text"><%=lastPost.content%></div>
+        <div class="text"><%=lastPost.description%></div>
     </div>
     <div class="news-list">
         <div class="title">Популярные посты</div>
         <ul class="items">
             <% news.forEach(item => { %>
             <li class="item">
-                <a href="/news/<%=item.alias%>"><img class="image" src="<%=item.picture%>" alt=""></a>
+                <a href="/news/<%=item.alias%>"><img class="image" src="<%=item.picture%>" alt="">
+                    
+                </a>
                 <div class="text">
                     <a class="title" href="/news/<%=item.alias%>" class="title">
                         <p><%=item.title%></p>
+                        <div class="user"><%=item.author%></div>
                     </a>
                     <div class="date">
                         <i class="far fa-clock"></i>
-                        <%=item.date.getDate() + '.' + (item.date.getMonth() + 1) + '.' + item.date.getFullYear()%></div>
+                        <%=item.createdAt.getDate() + '.' + (item.createdAt.getMonth() + 1) + '.' + item.createdAt.getFullYear()%></div>
+                        <a href="/news-edit/<%=item.alias%>"><button class="admin-edit-btn">Редактировать</button></a>
+                        <a href="<%=item.alias%>"><button class="admin-delete-btn">Удалить</button></a>
                 </div>
             </li>
             <% }) %>
+            <a href="/createPost"><button class="admin-add-btn">ДОБАВИТЬ ПОСТ</button></a>
         </ul>
     </div>
 </div>

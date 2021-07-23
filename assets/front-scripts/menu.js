@@ -1,7 +1,9 @@
 
-
+import adminCheck from "./checkIsAdmin.js"
+adminCheck(); //проверка на то, залогинен ли админ
 /* прилипающее меню */
 window.onscroll = function () {
+    
     stick()
 };
 

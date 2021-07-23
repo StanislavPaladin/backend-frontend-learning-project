@@ -31,12 +31,12 @@ class ProductService {
     }
 
     async getSomePosts() {
-        const posts = await Product.find().sort({date:-1}).limit(3)
+        const posts = await Product.find().sort({createdAt:-1}).limit(3)
         return posts
     }
 
     async getlastPost() {
-        const posts = await Product.find().sort({date:-1}).limit(1)
+        const posts = await Product.find().sort({createdAt:-1}).limit(1)
         return posts
     }
 
@@ -56,6 +56,7 @@ class ProductService {
             separator: '_',
             unknown: '-'
           })
+          console.log(post);
         const updatedPost = await Product.findByIdAndUpdate(post._id, post, {
             alias: titleTranslit,
             new: true

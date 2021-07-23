@@ -7,7 +7,9 @@ import fileUpload from "express-fileupload";
 import authRouter from './auth-scripts//authRouter.js';
 import Product from "./products-scripts/product.js"
 import Post from "./post-scripts/post.js"
+import User from "./models/User.js"
 import sendContactsFormData from "./mail-scripts/sendContactsFormData.js";
+
 
 
 
@@ -20,7 +22,9 @@ const PORT = 5555;
 const DB_URL = `mongodb+srv://Admin:ltcntvgth1@cluster0.nr3hg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 const app = express()
-app.use(express.json())
+app.use(express.json({
+  limit: '50mb'
+}))
 app.set('view engine', 'ejs');
 
 
@@ -36,14 +40,10 @@ app.use('/assets', express.static('assets')); //здесь статически�
 
 //обработка запросов 
 
-
-
-
-
 app.get('/', async function (req, res) {
   const products = await Product.find();
   const news = await Post.find().sort({
-    date: -1
+    createdAt: -1
   }).limit(3);
   res.render('mainSections/index.ejs', {
     data: '/assets/img/test-img.jpg',
@@ -68,20 +68,30 @@ app.get('/products', async function (req, res) {
 
 app.get('/news', urlencodedParser, async function (req, res) {
   const lastPost = await Post.find().sort({
-    date: -1
+    createdAt: -1
   }).limit(1);
   const news = await Post.find().sort({
-    date: -1
+    createdAt: -1
   }).limit(3);
   res.render('newsListSections/index.ejs', {
     title: 'Новости',
     active: 'news',
-    headerImage:'/assets/img/test-img.jpg',
+    headerImage: '/assets/img/test-img.jpg',
     productName: '',
     lastPost: lastPost[0],
     news: news
   });
 })
+
+app.get('/contacts', function (req, res) {
+  res.render('contactsSections/index.ejs', {
+    headerImage: '/assets/img/test-img.jpg',
+    title: 'Контакты',
+    active: 'contacts',
+    productName: ''
+  });
+})
+
 
 app.get('/about', function (req, res) {
   res.render('aboutSections/index.ejs', {
@@ -100,6 +110,7 @@ app.get('/contacts', function (req, res) {
     productName: ''
   });
 })
+
 app.get('/news/:id', async function (req, res) {
   const postsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
   try {
@@ -114,7 +125,7 @@ app.get('/news/:id', async function (req, res) {
         data: req.body,
         title: 'Новости',
         active: 'news',
-        headerImage: '../'+headerImage || '/assets/img/test-img.jpg',
+        headerImage: '../' + headerImage || '/assets/img/test-img.jpg',
         post: post,
         productName: title
       });
@@ -128,6 +139,7 @@ app.get('/news/:id', async function (req, res) {
 
 
 app.get('/products/:id', async function (req, res) {
+
   try {
     const productsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
 
@@ -139,7 +151,7 @@ app.get('/products/:id', async function (req, res) {
       const title = product.title;
       const headerImage = product.headerImage
       res.render('productsSections/productOne.ejs', {
-        headerImage: '../'+headerImage || '/assets/img/test-img.jpg',
+        headerImage: '../' + headerImage || '/assets/img/test-img.jpg',
         title: 'Продукты',
         active: 'products',
         product: product,
@@ -152,8 +164,169 @@ app.get('/products/:id', async function (req, res) {
 
 })
 
+/*админка */
+app.get('/products-edit/:id', async function (req, res) {
+  console.log(req.body);
+  try {
+    const productsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
+
+    const product = await Product.findOne({
+      alias: productsTitle
+    });
+
+    if (product) {
+      const title = product.title;
+      const headerImage = product.headerImage
+      res.render('adminSections/changeProduct.ejs', {
+        headerImage: '../' + headerImage || '/assets/img/test-img.jpg',
+        title: 'Продукты',
+        active: 'products',
+        product: product,
+        productName: title
+      })
+    }
+  } catch (e) {
+    console.log('error', e);
+  }
+
+})
+
+app.get('/news-edit/:id', async function (req, res) {
+  try {
+    const postsTitle = req._parsedOriginalUrl.pathname.split('/')[2];
+    const post = await Post.findOne({
+      alias: postsTitle
+    });
+    if (post) {
+      const title = post.title;
+      const headerImage = post.headerImage
+      res.render('adminSections/changeNews.ejs', {
+        headerImage: '../' + headerImage || '/assets/img/test-img.jpg',
+        title: 'Новости',
+        active: 'news',
+        post: post,
+        productName: title
+      })
+    }
+  } catch (e) {
+    console.log('error', e);
+  }
+})
 
 
+
+
+app.delete('/deleteNews/:id', async function (req, res) {
+  try {
+    const postsTitle = req.body.alias;
+    const post = await Post.findOneAndDelete({
+      alias: postsTitle
+    });
+  } catch (e) {
+    console.log('error', e);
+  }
+})
+
+app.delete('/deleteProduct/:id', async function (req, res) {
+  try {
+    const productsTitle = req.body.alias;
+    const product = await Product.findOneAndDelete({
+      alias: productsTitle
+    });
+  } catch (e) {
+    console.log('error', e);
+  }
+})
+
+
+
+app.put('/saveNews/:id', async function (req, res) {
+
+  try {
+    const postsTitle = req.body.alias;
+    const post = await Post.findOne({
+      alias: postsTitle
+    });
+    if (post) {
+      const updatedPost = await Post.findByIdAndUpdate(post._id, req.body, {
+        new: true
+      })
+      console.log('success');
+      return updatedPost
+    }
+  } catch (e) {
+    console.log('error', e);
+  }
+})
+
+app.put('/saveProduct/:id', async function (req, res) {
+  console.log(req.body);
+  return
+  try {
+    const productsTitle = req.body.alias;
+    const product = await Product.findOne({
+      alias: productsTitle
+    });
+    if (product) {
+      const updatedProduct = await Product.findByIdAndUpdate(product._id, req.body, {
+        new: true
+      })
+      console.log('success');
+      return updatedProduct
+    }
+  } catch (e) {
+    console.log('error', e);
+  }
+})
+
+
+
+app.get('/createPost', function (req, res) {
+  console.log(req.body);
+  res.render('adminSections/createPost.ejs', {
+    headerImage: '/assets/img/test-img.jpg',
+    title: 'Создать пост',
+    active: '',
+    productName: ''
+  });
+})
+
+app.get('/createProduct', function (req, res) {
+  res.render('adminSections/createProduct.ejs', {
+    headerImage: '/assets/img/test-img.jpg',
+    title: 'Создать продукт',
+    active: '',
+    productName: ''
+  });
+})
+
+app.get('/account/:id', async function (req, res) {
+  try {
+    const name = req._parsedOriginalUrl.pathname.split('/')[2];
+    const user = await await User.findOne({
+      email: name
+    })
+    console.log(user);
+    if (user) {
+      res.render('adminSections/personalAccount.ejs', {
+        headerImage: '/assets/img/test-img.jpg',
+        title: 'Личный кабинет',
+        active: '',
+        product: '',
+        productName: '',
+        user: user,
+      })
+    } 
+  } catch (e) {
+    console.log('error', e);
+  }
+})
+
+
+
+
+
+/**отправка формы из контактов */
 app.post('/sendForm', urlencodedParser, async function (req, res) {
   if (req.body.name !== '' && req.body.email !== '' && req.body.phone !== '' && req.body.message !== '') {
     await sendContactsFormData(req.body);
@@ -167,6 +340,7 @@ app.post('/sendForm', urlencodedParser, async function (req, res) {
   }
 })
 
+/**поисковая строка */
 app.post('/search', urlencodedParser, async function (req, res) {
   const query = JSON.parse(JSON.stringify(req.body));
   const queryToString = Object.values(query).toString();
@@ -186,12 +360,14 @@ app.post('/search', urlencodedParser, async function (req, res) {
 
 
 //обработка несуществующего запроса
-app.get('*', function(req, res){
+app.get('*', function (req, res) {
   res.status(404);
   res.render('404/index.ejs', {
-  title: '404'
+    title: '404'
   });
-  });
+});
+
+
 
 
 async function startApp() {

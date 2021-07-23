@@ -8,7 +8,10 @@
             <a href="/products/<%=product.alias%>" class="title"><%=product.title%></a>
             <div class="line"></div>
             <span class="text"><%=product.description%></span>
+            <a href="/products-edit/<%=product.alias%>"><button class="admin-edit-btn">Редактировать</button></a>
+            <a href="<%=product.alias%>"><button class="admin-delete-btn">Удалить</button></a>
         </li>
         <% }) %>
     </div>
+    <a href="/createProduct"><button class="admin-add-btn">ДОБАВИТЬ ПРОДУКТ</button></a>
 </div>

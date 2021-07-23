@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-export default async function welcomeMessage(data) {
+export default async function welcomeMessage(data, req, res) {
   
     let transporter = nodemailer.createTransport({
       host: "smtp.yandex.ru",
@@ -26,6 +26,7 @@ export default async function welcomeMessage(data) {
     }
     catch(e) {
       console.log(e);
+      return res.json(400);
 
     }
 

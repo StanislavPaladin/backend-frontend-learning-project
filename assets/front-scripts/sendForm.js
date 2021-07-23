@@ -29,12 +29,10 @@ function getForm() {
                 formToSend.elements['email'].value = '';
                 formToSend.elements['phone'].value = '';
                 formToSend.elements['message'].value = '';
-                console.log(info);
                 info.classList.add('success');
                 info.textContent = Object.values(JSON.parse(request.response));
                 setTimeout(hideInfo, 2000)
             } else if (request.status == 400) {
-                console.log(info);
                 info.classList.add('error');
                 info.textContent = Object.values(JSON.parse(request.response));
                 setTimeout(hideInfo, 2000)

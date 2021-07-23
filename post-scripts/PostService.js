@@ -4,6 +4,7 @@ import sharp from "sharp";
 import  { transliterate, slugify } from "transliteration";
 class PostService {
     async create(post, picture, headerImage) {
+        console.log(post, picture, headerImage);
         let titleTranslit = slugify(post.title, {
             separator: '_',
             unknown: '-'
@@ -25,12 +26,12 @@ class PostService {
     }
 
     async getSomePosts() {
-        const posts = await Post.find().sort({date:-1}).limit(3)
+        const posts = await Post.find().sort({createdAt:-1}).limit(3)
         return posts
     }
 
     async getlastPost() {
-        const posts = await Post.find().sort({date:-1}).limit(1)
+        const posts = await Post.find().sort({createdAt:-1}).limit(1)
         return posts
     }
 

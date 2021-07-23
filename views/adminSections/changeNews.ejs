@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %> - Блокчейн технологии </title>
+    <title><%= title %> - Блокчейн технологии</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/index.css" class="rel">
@@ -22,14 +22,34 @@
     <%- include ('../_commonSections/loader.ejs') -%>
     <%- include ('../_commonSections/breadcrumbs.ejs') -%>
     <div class="main">
-        <%- include ('../newsListSections/main.ejs') -%>
+        <div class="post-wrapper edit">
+            <div class="hide" id="post-id"><%=post._id%></div>
+            <form action="" class="post-wrapper" id="change-puctures" name="change-pictures">
+                <img class="image" src="../<%= post.picture%>" alt="image">
+                <label for="picture">Загрузить новое изображение</label>
+                <input type="file" id="picture" name="picture">
+                <label for="headerImage">Загрузить новое фоновое изображение (breacumbs)</label>
+                <input type="file" id="headerImage" name="headerImage">
+            </form>
+            
+            <div class="title" contenteditable="true" id="post-title"><%= post.title %></div>
+            <div class="text" contenteditable="true" id="post-description">
+                <%- post.description %>
+            </div>
+            <div class="text" contenteditable="true" id="post-content">
+                <%- post.content %>
+            </div>
+
+            <a href="<%= post.alias %>" id="post-href"><button type="submit" class="admin-save-btn"
+                    id="save-post">Сохранить</button></a>
+        </div>
     </div>
     <%- include ('../_commonSections/footer.ejs') -%>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/assets/front-scripts/editNews.js"></script>
     <script type="module" src="/assets/front-scripts/menu.js"></script>
-    <script type="module" src="/assets/front-scripts/deletePost.js"></script>
     <script src="/assets/front-scripts/loader.js"></script>
     <script type="module" src="/assets/front-scripts/checkIsAdmin.js"></script>
     <script src="/assets/front-scripts/swiper.js"></script>

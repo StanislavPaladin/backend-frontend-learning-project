@@ -1,0 +1,71 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - Блокчейн технологии</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/index.css" class="rel">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    <script src="https://kit.fontawesome.com/7b548e20ff.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <%- include ('../_commonSections/modals.ejs') -%>
+    <%- include ('../_commonSections/sidenav.ejs') -%>
+    <%- include ('../_commonSections/header.ejs') -%>
+    <%- include ('../_commonSections/loader.ejs') -%>
+    <%- include ('../_commonSections/breadcrumbs.ejs') -%>
+    <div class="main contacts">
+        <form name="createProduct-form" class="createProduct-form" id="createProduct-form" >
+            <div class="form-group">
+                <div class="input-grp">
+                    <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp"
+                        placeholder="Название продукта">
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-grp">
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Описание продукта">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-grp">
+                    <textarea class="form-control message" id="icon" name="icon" rows="3" placeholder="HTML-контент"></textarea>
+                    <i class="fas fa-pen"></i>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-grp">
+                    <input name="picture" id="picture" type="file">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-grp">
+                    <input name="headerImage" id="headerImage" type="file">
+                </div>
+            </div>
+            <button type="submit" class="submit-btn" id="create-button">Отправить</button>
+        </form>
+    </div>
+    <%- include ('../_commonSections/footer.ejs') -%>
+    <script type="module" src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script type="module" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="module" src="/assets/front-scripts/swiper.js"></script>
+    <script type="module" src="/assets/front-scripts/sidenav.js"></script>
+    <script type="module" src="/assets/front-scripts/menu.js"></script>
+    <script type="module" src="/assets/front-scripts/createProduct.js"></script>
+    <script type="module" src="/assets/front-scripts/loader.js"></script>
+    <script type="module" src="/assets/front-scripts/search-modal.js"></script>
+    <script type="module" src="/assets/front-scripts/login-modal.js"></script>
+    <script type="module" src="/assets/front-scripts/registration-modal.js"></script>
+    <script type="module" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

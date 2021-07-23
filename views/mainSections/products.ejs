@@ -10,13 +10,17 @@
                 <% products.forEach(product => { %>
                 <div class="product">
                     <div class="icon">
-                        <i class="<%=icon%>"></i>
+                        <%- product.icon %>
+                        
+                        <a href="/products-edit/<%=product.alias%>"><button class="admin-edit-btn"><i class="fas fa-edit"></i></button></a>
                     </div>
                     <div class="text-wrapper">
                         <a href="/products/<%=product.alias%>" class="title">
                             <div class="title"><%=product.title%></div>
                             <div class="text"><%=product.description%></div>
+                            
                         </a>
+                        
                     </div>
 
                 </div>

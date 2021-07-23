@@ -13,10 +13,11 @@
                             <span class="title"><%=item.title%></span>
                             <div class="flex">
                                 <i class="far fa-clock" aria-hidden="true"></i>
-                                <span class="date"><%=item.date.getDate() + '.' + (item.date.getMonth() + 1) + '.' + item.date.getFullYear()%></span>
+                                <span class="date"><%=item.createdAt.getDate() + '.' + (item.createdAt.getMonth() + 1) + '.' + item.createdAt.getFullYear()%></span>
                             </div>
                             
                         </a> 
+                        <a href="/news-edit/<%=item.alias%>"><button class="admin-edit-btn">Редактировать</button></a>
                     </div>
                     
                 </div>

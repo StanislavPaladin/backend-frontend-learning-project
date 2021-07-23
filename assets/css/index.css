@@ -17,6 +17,8 @@
 @import "./modals.css";
 @import "./sidenav.css";
 @import "./404.css";
+@import "./admin-tools.css";
+@import "./personalAccount.css";
 
 html {
     overflow-y: scroll;
@@ -55,4 +57,16 @@ img {
 /*для фоновых изображений внутри слайдера object-fit не годится*/
 .swiper-container img {
     object-fit: none;
+}
+
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
+
+.main a {
+    text-decoration: none;
+
 }

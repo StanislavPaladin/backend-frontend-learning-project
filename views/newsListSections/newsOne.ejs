@@ -23,6 +23,8 @@
     <%- include ('../_commonSections/breadcrumbs.ejs') -%>
     <div class="main">
         <div class="post-wrapper">
+            <a href="/news-edit/<%=post.alias%>"><button class="admin-edit-btn">Редактировать</button></a>
+            <a href="<%=post.alias%>" id="news-href"><button class="admin-delete-btn">Удалить</button></a>
             <img class="image" src="../<%= post.picture%>" alt="image">
             <div class="title" id='big-news-title'><%= post.title %></div>
             <div class="text">
@@ -31,16 +33,19 @@
         </div>
     </div>
     <%- include ('../_commonSections/footer.ejs') -%>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="/assets/front-scripts/swiper.js"></script>
-    <script src="/assets/front-scripts/menu.js"></script>
-    <script src="/assets/front-scripts/sidenav.js"></script>
+    <script type="module" src="/assets/front-scripts/menu.js"></script>
+    <script type="module" src="/assets/front-scripts/deletePost.js"></script>
     <script src="/assets/front-scripts/loader.js"></script>
+    <script type="module" src="/assets/front-scripts/checkIsAdmin.js"></script>
+    <script src="/assets/front-scripts/swiper.js"></script>
+    <script type="module" src="/assets/front-scripts/menu.js"></script>
+    <script src="/assets/front-scripts/sidenav.js"></script>
     <script src="/assets/front-scripts/search-modal.js"></script>
-    <script src="/assets/front-scripts/login-modal.js"></script>
+    <script type="module" src="/assets/front-scripts/login-modal.js"></script>
     <script src="/assets/front-scripts/registration-modal.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>
