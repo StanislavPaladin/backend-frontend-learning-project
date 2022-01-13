@@ -1,5 +1,4 @@
-const loader = document.querySelector('.loader')
-console.log(loader);
+const loader = document.querySelector('.loader');
 
 let opacity = 1;
 

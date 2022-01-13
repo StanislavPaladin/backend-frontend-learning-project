@@ -8,7 +8,6 @@ function loginModalController() {
     let input = document.querySelector('.search-input');
     let sendForm = document.querySelector('#send-login-form');
     let emailField = document.getElementById('login-email');
-    console.log(emailField,'emailfield');
     let passwordField = document.getElementById('login-password')
 
     body.addEventListener('click', function (e) {
@@ -23,11 +22,11 @@ function loginModalController() {
             //logout
         } else if (target.matches('#logout')) {
             e.preventDefault();
-            localStorage.removeItem('token');
-            localStorage.removeItem('name');
-            localStorage.removeItem('id');
             if (localStorage.token) {
                 const loginInfo = document.getElementById('login-info')
+                localStorage.removeItem('token');
+                localStorage.removeItem('name');
+                localStorage.removeItem('id');
                 loginInfo.classList.add('warning');
                 loginInfo.textContent = 'Вы вышли из учётной записи';
                 setTimeout(hideInfo, 2000);
@@ -50,7 +49,6 @@ function loginModalController() {
         if (!$) $ = jQuery;
         let form = $("#login-modal-wrapper"); // чтобы не переопределить что-то глобальное
         let formWrapper = form.parent();
-        console.log(emailField, 'aaa');
         let email = emailField.value;
         let password = passwordField.value;
         let token = localStorage.getItem('token')
@@ -85,7 +83,6 @@ function loginModalController() {
                     setTimeout(hideInfo, 2000);
                     adminCheck();
                 } else if (request.status == 200) {
-                    console.log();
                     const loginInfo = document.getElementById('login-info')
                     loginInfo.classList.add('success');
                     loginInfo.textContent = 'Авторизация прошла успешно';
@@ -104,7 +101,6 @@ function loginModalController() {
             }
 
         });
-        console.log(user);
         request.send(user);
         hideInfo();
     })

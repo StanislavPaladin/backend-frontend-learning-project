@@ -306,8 +306,8 @@ app.get('/account/:id', async function (req, res) {
     const user = await await User.findOne({
       email: name
     })
-    console.log(user);
-    if (user) {
+    console.log(user, 'username', user === null);
+    if (user !== null) {
       res.render('adminSections/personalAccount.ejs', {
         headerImage: '/assets/img/test-img.jpg',
         title: 'Личный кабинет',
@@ -316,7 +316,11 @@ app.get('/account/:id', async function (req, res) {
         productName: '',
         user: user,
       })
-    } 
+    } else if (user === null){
+      res.render('404/index.ejs', {
+        title: '404'
+      });
+    }
   } catch (e) {
     console.log('error', e);
   }
