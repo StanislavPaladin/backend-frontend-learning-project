@@ -7,7 +7,8 @@ function loginModalController() {
     const body = document.querySelector('body');
     let input = document.querySelector('.search-input');
     let sendForm = document.querySelector('#send-login-form');
-    let emailField = document.getElementById('login-email')
+    let emailField = document.getElementById('login-email');
+    console.log(emailField,'emailfield');
     let passwordField = document.getElementById('login-password')
 
     body.addEventListener('click', function (e) {
@@ -49,6 +50,7 @@ function loginModalController() {
         if (!$) $ = jQuery;
         let form = $("#login-modal-wrapper"); // чтобы не переопределить что-то глобальное
         let formWrapper = form.parent();
+        console.log(emailField, 'aaa');
         let email = emailField.value;
         let password = passwordField.value;
         let token = localStorage.getItem('token')
@@ -83,25 +85,28 @@ function loginModalController() {
                     setTimeout(hideInfo, 2000);
                     adminCheck();
                 } else if (request.status == 200) {
+                    console.log();
                     const loginInfo = document.getElementById('login-info')
                     loginInfo.classList.add('success');
                     loginInfo.textContent = 'Авторизация прошла успешно';
                     let res = JSON.parse(request.response);
                     localStorage.setItem('token', Object.values(res));
                     localStorage.setItem('name', email);
-                    localStorage.setItem('id',)
+                    // localStorage.setItem('id', id)
                     loginModal.classList.remove('show')
                     setTimeout(hideInfo, 2000)
                     /* очищение полей юзернейм и пароль*/
                     emailField.value = '';
                     passwordField.value = '';
                     adminCheck();
+                    setTimeout(hideInfo, 2000);
                 }
             }
 
         });
+        console.log(user);
         request.send(user);
-
+        hideInfo();
     })
 
     function hideInfo() {
