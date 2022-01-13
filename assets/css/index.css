@@ -35,7 +35,7 @@ html {
 
 body {
     width: 100vw;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 .main {
     width: 1200px;
