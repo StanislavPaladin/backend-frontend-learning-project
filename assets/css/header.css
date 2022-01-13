@@ -11,7 +11,7 @@ body {
     z-index: 3;
     /* padding-left: 350px;
     padding-right: 350px; */
-    position: fixed;
+    position: sticky;
     /* top: 40px; */
     background-color: #141D28;
     opacity: 0.9;
